@@ -7,11 +7,11 @@ Template.header.events
     event.preventDefault()
     Meteor.logout (error) ->
       if error
-        console.log error
+        #console.log error
         Notifications.error '', 'Une erreur est survenue...'
       else
         Router.go 'home'
-      
+
     return false
 
 Template.header.helpers
