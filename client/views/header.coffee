@@ -3,6 +3,7 @@ Template.header.events
     event.preventDefault()
     i18n.setLanguage @code
     return false
+    
   'click .btn-sign-out': (event, template) ->
     event.preventDefault()
     Meteor.logout (error) ->
