@@ -18,6 +18,7 @@ AutoForm.addHooks 'editProfileForm',
     Notifications.success '', 'Profile enregistré !', timeout: 5000
     Router.go 'allCourses'
     return
+    
   onError: (operation, error, template) ->
     Notifications.error '', 'Une erreur est survenue...'
     return
