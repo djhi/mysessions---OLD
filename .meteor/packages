@@ -1,0 +1,36 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+standard-app-packages
+insecure
+coffeescript
+less
+accounts-password
+iron:router
+cmather:handlebars-server@0.2.0
+amr:parsley.js
+skinnygeek1010:parse-form
+aldeed:autoform
+aldeed:collection2
+accounts-google
+accounts-facebook
+tap:i18n
+raix:handlebar-helpers
+mrt:moment
+gildaspk:moment-datepicker
+gildaspk:moment-languages
+gfk:notifications
+mrt:iron-router-progress
+zimme:iron-router-active
+zimme:iron-router-auth
+email
+meteorhacks:kadira
+meteorhacks:zones
+peerlibrary:peerdb
+splendido:accounts-templates-bootstrap
+u2622:persistent-session
+amplify
+wizonesolutions:underscore-string
+

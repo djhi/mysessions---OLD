@@ -1,0 +1,30 @@
+{
+  "appTitle": "Mes cours",
+  "showNavigation": "Afficher navigation",
+  "save": "Enregistrer",
+  "add": "Ajouter",
+  "edit": "Modifier",
+  "cancel": "Annuler",
+  "remove": "Supprimer",
+  "addParticipant": "Ajouter un participant",
+  "newSession": "Nouvelle session",
+  "sessions": "Sessions",
+  "participants": "Participants",
+  "numberOfParticipants": "1 participant",
+  "numberOfParticipants_plural": "%s participants",
+  "age": "%s ans",
+  "howToSetSessionParticipants": "Cliquez sur chaque participant présent à cette session",
+  "sessionNotes": "Notes sur cette session",
+  "recipients": "Destinataire(s)",
+  "title": "Titre",
+  "owner": "Propriétaire",
+  "language": "Langue",
+  "name": "Nom",
+  "fullname": "Nom complet",
+  "profile": "Mon compte",
+  "signOut": "Se déconnecter",
+  "home": {
+    "title": "Bienvenue sur Mes Cours !",
+    "subtitle": "L'application pour gérer vos cours"
+  }
+}

@@ -1,0 +1,14 @@
+<template name='newCourse'>
+  <div class="container">
+    <div class="page-header">
+      <h1>Nouveau cours</h1>
+    </div>
+
+    {{#autoForm collection="Collections.Courses" id="newCourseForm" type="insert"}}
+      {{> afQuickField name='title'}}
+
+      {{> _submit}}
+      {{> _cancel}}
+    {{/autoForm}}
+  </div>
+</template>

@@ -1,0 +1,14 @@
+<template name="editCourse">
+  <div class="container">
+    <div class="page-header">
+      <h1>{{course.title}}</h1>
+    </div>
+
+    {{#autoForm collection="Collections.Courses" id="editCourseForm" type="update" doc=course}}
+      {{> afQuickField name='title'}}
+
+      {{> _submit}}
+      {{> _cancel}}
+    {{/autoForm}}
+  </div>
+</template>

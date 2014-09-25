@@ -1,0 +1,46 @@
+<template name="newSession">
+  <div class="container">
+    <div class="page-header">
+      <h1>Nouvelle session de {{course.title}}</h1>
+    </div>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="date" class="sr-only">Date</label>
+        <div class="input-group">
+          <span class="input-group-addon">Date</span>
+          <input id="date" type="text" name="date" class="form-control datepicker"/>
+        </div>
+      </div>
+      <p class="text-info">
+        Cliquez sur chaque participant présent à cette session
+      </p>
+      {{#each participants}}
+      <div class="form-group">
+        <div class="btn-group btn-group-full-width" data-toggle="buttons">
+          <label class="btn btn-block btn-default btn-checkbox">
+            <input type="checkbox" value="{{_id}}" /> {{name}}
+          </label>
+        </div>
+      </div>
+      {{/each}}
+      <div class="form-group">
+        <a type="button" class="btn btn-block btn-primary btn-new-participant">Nouveau</a>
+      </div>
+      {{#if showNewParticipant}}
+        <div class="form-group">
+        {{>newParticipant course=course}}
+        </div>
+      {{/if}}
+      <div class="form-group">
+        <label for="notes" class="sr-only">">Notes</label>
+        <textarea id="notes" name="notes" class="form-control" rows="8" placeholder="{{_ 'sessionNotes'}}"></textarea>
+      </div>
+
+      <div class="form-group">
+      {{> _submit}}
+      <a href="{{pathFor 'sendSessionReport'}}" class="btn btn-default btn-send-report">{{_ 'sendReport'}}</a>
+      {{> _cancel}}
+      </div>
+    </form>
+  </div>
+</template>

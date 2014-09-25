@@ -1,0 +1,40 @@
+<template name="participants">
+  <div class="container">
+    {{> coursePageHeader}}
+    <div class="row">
+      <div class="col-md-12">
+        <a class="btn btn-primary btn-new-participant {{#if showNewParticipant}}hidden{{/if}}">{{_ 'addParticipant'}}</a>
+        <a class="btn btn-default" href="{{pathFor 'newSession' _id=course._id}}">
+          <i class="fa fa-bell-o"></i>
+          <span class="hidden-xs">{{_ 'newSession'}}</span>
+        </a>
+        <a class="btn btn-default" href="{{pathFor 'sessions' _id=course._id}}">
+          <i class="fa fa-bell"></i>
+          <span class="hidden-xs">{{_ 'sessions'}}</span>
+        </a>
+        {{#if showNewParticipant}}
+        <div class="row">
+          <hr />
+          {{>newParticipant course=course}}
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    {{#if $gt participants.count 0}}
+    <div class="row">
+      <div class="col-md-12">
+        <hr/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="list-group">
+        {{#each participants}}
+          {{> participant}}
+        {{/each}}
+        </ul>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</template>

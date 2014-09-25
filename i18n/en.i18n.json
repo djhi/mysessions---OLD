@@ -1,0 +1,25 @@
+{
+  "save": "Save",
+  "add": "Add",
+  "edit": "Modifier",
+  "cancel": "Cancel",
+  "remove": "Supprimer",
+  "addParticipant": "Add a participant",
+  "newSession": "New session",
+  "sessions": "Sessions",
+  "participants": "Participants",
+  "numberOfParticipants": "1 participant",
+  "numberOfParticipants_plural": "%s participants",
+  "age": "%s years",
+  "howToSetSessionParticipants": "Click on each participant who was attending this session",
+  "sessionNotes": "Notes about this session",
+  "recipients": "Recipient(s)",
+  "title": "Title",
+  "owner": "Owner",
+  "language": "Language",
+  "name": "Name",  
+  "home": {
+    "title": "Welcome on My Courses !",
+    "subtitle": "An application to manage your courses"
+  }
+}

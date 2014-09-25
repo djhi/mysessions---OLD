@@ -1,0 +1,33 @@
+<template name="sessions">
+  <div class="container">
+    {{> coursePageHeader}}
+    <div class="row">
+      <div class="col-md-12">
+        <a class="btn btn-primary" href="{{pathFor 'newSession' _id=course._id}}">
+          <i class="fa fa-bell-o"></i>
+          <span class="hidden-xs">{{_ 'newSession'}}</span>
+        </a>
+        <a class="btn btn-default" href="{{pathFor 'course' _id=course._id}}">
+          <i class="fa fa-users"></i>
+          <span class="hidden-xs">{{_ 'participants'}}</span>
+        </a>
+      </div>
+    </div>
+    {{#if $gt sessions.count 0}}
+    <div class="row">
+      <div class="col-md-12">
+        <hr/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="list-group">
+        {{#each sessions}}
+          {{> session}}
+        {{/each}}
+        </ul>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</template>

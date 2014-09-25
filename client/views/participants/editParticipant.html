@@ -1,0 +1,17 @@
+<template name="editParticipant">
+  <div class="container">
+    <div class="page-header">
+      <h1>{{participant.name}}</h1>
+    </div>
+    {{#autoForm doc=participant collection="Collections.Participants" id="editParticipantForm" type="update"}}
+      {{> afFieldInput name='courseId' type="hidden"}}
+      {{> afQuickField name='name' placeholder="schemaLabel"}}
+      {{> afQuickField name='age' placeholder="schemaLabel"}}
+      {{> afQuickField name='phone' placeholder="schemaLabel"}}
+      {{> afQuickField name='emergencyPhone' placeholder="schemaLabel"}}
+
+      {{> _submit}}
+      {{> _cancel}}
+    {{/autoForm}}
+  </div>
+</template>

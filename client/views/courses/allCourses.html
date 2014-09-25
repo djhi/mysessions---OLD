@@ -1,0 +1,27 @@
+<template name="allCourses">
+  <div class="container">
+    <div class="page-header">
+      <h1>Tous mes cours</h1>
+    </div>
+
+    {{#if $gt courses.count 0}}
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="list-item">
+          {{#each courses}}
+          <li class="list-group-item">
+          {{> courseItem}}
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    {{else}}
+    <div class="row">
+      <div class="col-md-12">
+        <a class="btn btn-primary btn-lg" href="{{pathFor 'newCourse'}}">Créez votre premier cours</a>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</template>

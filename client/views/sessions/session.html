@@ -1,0 +1,30 @@
+<template name="session">
+<li class="list-group-item clearfix">
+  <div class="input-group hidden-xs">
+    <span class="form-control">
+      <strong>{{mdate date}}</strong> - ({{_ 'numberOfParticipants' participantsIds.length count=participantsIds.length}})
+    </span>
+    <span class="input-group-btn">
+      <a href="{{pathFor 'editSession'}}" class="btn btn-default btn-edit">
+        <i class="fa fa-pencil"></i>
+        <span class="hidden-xs">{{_ 'edit'}}</span>
+      </a>
+      <a href="#" class="btn btn-danger btn-remove">
+        <i class="fa fa-trash"></i>
+        <span class="hidden-xs">{{_ 'remove'}}</span>
+      </a>
+    </span>
+  </div>
+  <div class="list-group-item-heading visible-xs">
+    <span class="pull-right">
+      <a href="#" class="btn btn-danger btn-remove">
+        <i class="fa fa-trash"></i>
+        <span class="hidden-xs">{{_ 'remove'}}</span>
+      </a>
+    </span>
+    <a class="btn btn-block btn-default btn-edit" href="{{pathFor 'editSession'}}">
+      <strong>{{date}}</strong> - ({{_ 'numberOfParticipants' participantsIds.length count=participantsIds.length}})
+    </a>
+  </div>
+</li>
+</template>
