@@ -17,7 +17,10 @@
   "title": "Title",
   "owner": "Owner",
   "language": "Language",
-  "name": "Name",  
+  "name": "Name",
+  "fullname": "Full name",
+  "profile": "My account",
+  "signOut": "Sign out",   
   "home": {
     "title": "Welcome on My Courses !",
     "subtitle": "An application to manage your courses"
