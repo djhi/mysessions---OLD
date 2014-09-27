@@ -1,7 +1,7 @@
 <template name="sendSessionReport">
   <div class="container">
     <div class="page-header">
-      <h1>{{mDate session.date}} : {{_ 'sessionReportForCourse' course.title}} </h1>
+      <h1>{{mDate session.date}} : {{_ 'sessionReportForCourse' course=course.title}} </h1>
     </div>
     {{#autoForm schema=sessionReportSchema doc=sessionReport id="sessionReportForm" type="method" meteormethod="sendSessionReport"}}
       {{> afQuickField name='recipients'}}
