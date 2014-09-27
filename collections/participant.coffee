@@ -5,40 +5,41 @@
 @Schemas.Participant = new SimpleSchema
   subscribedAt:
     type: Date
-    label: 'Inscrit le'
+    i18nLabel: 'subscribedAt'
     optional: true
     denyUpdate: true
-    autoValue: ()->
-      if @isInsert then return new Date
+    autoValue: ->
+      if @isInsert then return new Date()
       return
 
   courseId:
     type: String
-    label: 'Cours'
+    i18nLabel: 'course'
     min: 3
     max: 100
 
   name:
     type: String
-    label: 'Nom'
+    i18nLabel: 'name'
     min: 3
     max: 100
 
-  age:
-    type: Number
-    label: 'Âge'
-    min: 0
-    max: 99
+  birthDate:
+    type: Date
+    i18nLabel: 'birthDate'
+    optional: true
 
   phone:
     type: String
-    label: 'Téléphone'
+    i18nLabel: 'phone'
+    optional: true
     min: 10
     max: 10
 
   emergencyPhone:
     type: String
-    label: 'Tél. Urgence'
+    i18nLabel: 'emergencyPhone'
+    optional: true
     min: 10
     max: 10
 

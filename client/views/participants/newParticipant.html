@@ -1,21 +1,17 @@
 <template name="newParticipant">
-  {{#autoForm collection="Collections.Participants" id="newParticipantForm" type="insert"}}
-    {{> afFieldInput name='courseId' type="hidden" value=course._id}}
-    <div class="col-md-4">
-      {{> afQuickField name='name' label-class="sr-only" placeholder="schemaLabel"}}
+  <div class="container">
+    <div class="page-header">
+      <h1>{{_ "newParticipant"}}</h1>
     </div>
-    <div class="col-md-1">
-      {{> afQuickField name='age' label-class="sr-only" placeholder="schemaLabel"}}
-    </div>
-    <div class="col-md-2">
-      {{> afQuickField name='phone' label-class="sr-only" placeholder="schemaLabel"}}
-    </div>
-    <div class="col-md-2">
-      {{> afQuickField name='emergencyPhone' label-class="sr-only" placeholder="schemaLabel"}}
-    </div>
-    <div class="col-md-3">
+
+    {{#autoForm collection="Collections.Participants" id="newParticipantForm" type="insert"}}
+      {{> afFieldInput name='courseId' type="hidden" value=course._id}}
+      {{> afQuickField name='name' placeholder="schemaLabel"}}
+      {{> afQuickField name='birthDate' type='text' class="datepicker" placeholder="schemaLabel"}}
+      {{> afQuickField name='phone' placeholder="schemaLabel"}}
+      {{> afQuickField name='emergencyPhone' placeholder="schemaLabel"}}
       {{> _submit label=submitLabel}}
-      <button type="button" class="btn btn-default btn-cancel">{{_ 'cancel'}}</button>
-    </div>
-  {{/autoForm}}
+      {{> _cancel}}
+    {{/autoForm}}
+  </div>
 </template>

@@ -1,14 +1,18 @@
 AutoForm.addHooks 'newParticipantForm',
   onSuccess: (operation, result, template) ->
-    Session.set 'showNewParticipant', false
+    previousRoute = Session.get 'previousRoute'
+    if previousRoute
+      Router.go previousRoute
+    else
+      Router.go 'participants', _id: template.data.course._id
     return
 
 Template.newParticipant.helpers
   submitLabel: ->
     return TAPi18n.__ 'add'
 
-Template.newParticipant.events
-  'click .btn-cancel': (event, template) ->
-    event.preventDefault()
-    Session.set 'showNewParticipant', false
-    return
+Template.newParticipant.rendered = ->
+  @$('.datepicker').datepicker
+    viewMode: 'years'
+
+  return

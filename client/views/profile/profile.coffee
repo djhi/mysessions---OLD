@@ -11,14 +11,14 @@ Template.profile.helpers
     if user and user.profile and user.profile.fullname then return user.profile.fullname
     return ''
 
-  currentLanguage: -> return currentUserLanguage()
+  currentLanguage: -> return i18n.getLanguageCode()
 
 AutoForm.addHooks 'editProfileForm',
   onSuccess: (operation, result, template) ->
     Notifications.success '', 'Profile enregistré !', timeout: 5000
     Router.go 'allCourses'
     return
-    
+
   onError: (operation, error, template) ->
     Notifications.error '', 'Une erreur est survenue...'
     return

@@ -4,17 +4,17 @@
 @Schemas.SessionReport = new SimpleSchema
   recipients:
     type: String
-    label: 'Destinataires'
+    i18nLabel: 'recipients'
     min: 3
     max: 200
 
   subject:
     type: String
-    label: 'Sujet'
+    i18nLabel: 'subject'
     min: 3
     max: 200
 
   body:
     type: String
-    label: 'Message'
+    i18nLabel: 'mailBody'
     optional: true

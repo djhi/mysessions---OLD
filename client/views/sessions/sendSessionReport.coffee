@@ -6,18 +6,19 @@ Template.sendSessionReport.created = ->
   course = @data.course
 
   participants.forEach (participant) ->
-    participantList += participant.name + ' (' + participant.age + ' ans): '
+    age = moment(participant.birthDate).add(1, 'years').fromNow(false);
+    participantList += participant.name + ' (' + TAPi18n.__ "age", age + '): '
 
     if participant._id in session.participantsIds
-      participantList += " présent"
+      participantList += TAPi18n.__ "wasAttending"
     else
-      participantList += " absent"
+      participantList += TAPi18n.__ "wasMissing"
 
     participantList += '\r\n'
 
   sessionReport =
-    subject: course.title + ": Session du " + moment(session.date).format('L')
-    body: session.notes + '\r\n\r\nListe des inscrits:\r\n\r\n' + participantList
+    subject: moment(session.date).format('L') + ': ' + TAPi18n.__ 'sessionReportForCourse', course.title
+    body: session.notes + '\r\n\r\n' + TAPi18n.__ 'participantsList' + ':\r\n\r\n' + participantList
 
   @data.sessionReport = sessionReport
 
@@ -26,9 +27,12 @@ Template.sendSessionReport.helpers
     schema = Schemas.SessionReport
     return schema
 
+  sendLabel: ->
+    return TAPi18n.__ "send"
+
 AutoForm.addHooks 'sessionReportForm',
   onSuccess: (operation, result, template) ->
-    Notifications.success '', 'Rapport envoyé !'
+    Notifications.success '', TAPi18n.__ 'reportSend'
 
   onError: (operation, error, template) ->
-    Notifications.error '', 'Une erreur est survenue...'
+    Notifications.error '', TAPi18n.__ 'anErrorOccured'

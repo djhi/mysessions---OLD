@@ -5,10 +5,7 @@
   fullname:
     type: String
     label: ->
-      user = Meteor.user()
-      if Meteor.isServer and user.profile and user.profile.language
-        language =  user.profile.language
-
+      language = if not Meteor.isClient then Meteor.user().profile.language
       return TAPi18n.__ 'fullname', {}, language
     min: 3
     max: 200
@@ -16,10 +13,9 @@
   language:
     type: String
     label: ->
-      user = Meteor.user()
-      if Meteor.isServer and user.profile and user.profile.language
-        language =  user.profile.language
-
+      language = if not Meteor.isClient then Meteor.user().profile.language
       return TAPi18n.__ 'language', {}, language
     custom: () ->
-      if not TAPi18n.getLanguages()[@value]? then return 'invalid language'
+      if not TAPi18n.getLanguages()[@value]?
+        language = if not Meteor.isClient then Meteor.user().profile.language
+        return TAPi18n.__ 'invalidLanguage', {}, language

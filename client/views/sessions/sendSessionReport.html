@@ -1,14 +1,14 @@
 <template name="sendSessionReport">
   <div class="container">
     <div class="page-header">
-      <h1>Rapport de session pour: {{course.title}}, session du {{mdate session.date}}</h1>
+      <h1>{{mDate session.date}} : {{_ 'sessionReportForCourse' course.title}} </h1>
     </div>
     {{#autoForm schema=sessionReportSchema doc=sessionReport id="sessionReportForm" type="method" meteormethod="sendSessionReport"}}
       {{> afQuickField name='recipients'}}
       {{> afQuickField name='subject'}}
       {{> afQuickField name='body' type='textarea' rows=10}}
 
-      {{> _submit label="Envoyer"}}
+      {{> _submit label=sendLabel}}
       {{> _cancel}}
     {{/autoForm}}
   </div>

@@ -5,26 +5,21 @@
 @Schemas.Course = new SimpleSchema
   title:
     type: String
-    label: () ->
-      language =  Meteor.user().profile.language
-      return TAPi18n.__ 'title', {}, language
+    i18nLabel: 'title'
     min: 3
     max: 100
 
   userId:
     type: String
-    label: () ->
-      language =  Meteor.user().profile.language
-      return TAPi18n.__ 'owner', {}, language
-    denyUpdate: true,
-    autoValue: ()->
-      return Meteor.userId()
+    i18nLabel: 'owner'
+    denyUpdate: true
+    autoValue: ->
+      if @isInsert then return Meteor.userId()
+      return
 
   participantsIds:
     type: [String]
-    label: () ->
-      language =  Meteor.user().profile.language
-      return TAPi18n.__ 'participants', {}, language
+    i18nLabel: 'participants'
     optional: true
 
 @Collections.Courses = new Meteor.Collection 'courses'

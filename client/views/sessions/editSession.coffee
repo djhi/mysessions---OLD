@@ -3,14 +3,10 @@ Template.editSession.events
     $(event.currentTarget).parent('label').toggleClass 'btn-success'
     return false
 
-  'click .btn-new-participant': (event, template) ->
-    event.preventDefault()
-    Session.set 'showNewParticipant', true
-    return false
-
   'click .btn-send-report': (event, template) ->
+    event.preventDefault()
     Session.set 'send-report', true
-    return
+    return false
 
   'submit form': (event, template) ->
     event.preventDefault()
@@ -28,8 +24,9 @@ Template.editSession.events
         notes: notes
         participantsIds: participants
 
-    if result > 0 then Notifications.success '', 'Session modifiée !', timeout: 5000
-    if result is 0 then Notifications.error '', 'Une erreur est survenue...'
+    if result > 0 then Notifications.success '', TAPi18n.__ "changesPersisted", timeout: 5000
+
+    if result is 0 then Notifications.error '', TAPi18n.__ "anErrorOccured"
 
     if Session.get 'send-report' then Router.go 'sendSessionReport',
       courseId: template.data.course._id
@@ -46,5 +43,10 @@ Template.editSession.helpers
 
 Template.editSession.rendered = ->
   @$('.datepicker').datepicker()
+
+  Tracker.autorun ->
+    momentFormat = moment.localeData(i18n.getLanguageCode()).longDateFormat('L')
+    template.$('.datepicker').data('datepicker').format = momentFormat
+
   @$('.btn-checkbox').button()
   return

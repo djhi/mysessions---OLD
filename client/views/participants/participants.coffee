@@ -7,3 +7,6 @@ Template.participants.events
 Template.participants.helpers
   showNewParticipant: ->
     return Session.get 'showNewParticipant'
+
+  subtitle: ->
+    return TAPi18n.__ "participants"

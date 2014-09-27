@@ -3,13 +3,13 @@ Template.header.events
     event.preventDefault()
     i18n.setLanguage @code
     return false
-    
+
   'click .btn-sign-out': (event, template) ->
     event.preventDefault()
     Meteor.logout (error) ->
       if error
         console.log error
-        Notifications.error '', 'Une erreur est survenue...'
+        Notifications.error '', TAPi18n._ 'anErrorOccured'
       else
         Router.go 'home'
 
