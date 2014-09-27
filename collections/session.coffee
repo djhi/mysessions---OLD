@@ -5,22 +5,22 @@
 @Schemas.Session = new SimpleSchema
   courseId:
     type: String
-    label: 'Cours'
+    i18nLabel: 'course'
     min: 3
     max: 100
 
   date:
     type: Date
-    label: 'Date'
-    defaultValue: new Date
+    i18nLabel: 'date'
+    defaultValue: new Date()
 
   participantsIds:
     type: [String]
-    label: 'Participants'
+    i18nLabel: 'participants'
 
   notes:
     type: String
-    label: 'Notes'
+    i18nLabel: 'notes'
     optional: true
 
 @Collections.Sessions = new Meteor.Collection 'sessions'

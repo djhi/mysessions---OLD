@@ -16,4 +16,4 @@ Router.configure
 
 Router.onBeforeAction 'loading'
 
-Router.onBeforeAction AccountsTemplates.ensureSignedIn, except: ['atSignIn', 'atSignUp', 'atForgotPassword', 'home']
+Router.onBeforeAction AccountsTemplates.ensureSignedIn, except: ['atSignIn', 'atSignUp', 'atForgotPwd', 'atResetPwd', 'home']

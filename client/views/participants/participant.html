@@ -2,7 +2,8 @@
   <li class="list-group-item clearfix">
     <div class="input-group hidden-xs">
       <span class="form-control">
-        <strong>{{name}} ({{_ 'age' age }})</strong> - {{phone}} (urgence: {{emergencyPhone}})
+        <strong>{{name}} {{#if birthDate}}({{mAge birthDate withoutSuffix=true}}){{/if}}</strong>
+        {{#if phone}} - {{>phoneLink phone}}{{/if}}{{#if emergencyPhone}} ({{_ 'emergencyPhone'}}: {{>phoneLink emergencyPhone}}){{/if}}
       </span>
       <span class="input-group-btn">
         <a href="{{pathFor 'editParticipant'}}" class="btn btn-default btn-edit">
@@ -27,10 +28,10 @@
       </a>
     </div>
     <div class="list-group-item-text visible-xs">
-      tél: <a href="tel:{{phone}}">{{phone}}</a>
+      tél: {{>phoneLink phone}}
     </div>
     <div class="list-group-item-text visible-xs">
-      urgence: <a href="tel:{{emergencyPhone}}">{{emergencyPhone}}</a>
+      urgence: {{>phoneLink emergencyPhone}}
     </div>
   </li>
 </template>

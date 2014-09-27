@@ -1,11 +1,11 @@
 <template name="coursePageHeader">
   <div class="page-header">
     <div class="pull-right">
-      <a class="btn btn-xs btn-default" href="{{pathFor 'editCourse'}}">
+      <a class="btn btn-xs btn-default" href="{{pathFor 'editCourse' _id=course._id}}">
         <i class="fa fa-pencil"></i>
         <span class="hidden-xs">{{_ 'edit'}}</span>
       </a>
     </div>
-    <h1>{{course.title}}</h1>
+    <h1>{{course.title}} <small>{{subtitle}}</small></h1>
   </div>
 </template>

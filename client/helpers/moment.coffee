@@ -1,25 +1,43 @@
-UI.registerHelper 'mdate', (date) ->
-    return moment(date).format('L')
+UI.registerHelper 'mDate', (date) ->
+  # Calling this ensure this helper is re-evaluated whenever the current language changes
+  i18n.getLanguage()
+  return moment(date).format('L')
 
-UI.registerHelper 'mdateform', (date) ->
-    return moment(date).format('YYYY-MM-DD')
+UI.registerHelper 'mDuration', (duration, units = 'hours') ->
+  # Calling this ensure this helper is re-evaluated whenever the current language changes
+  i18n.getLanguage()
 
-UI.registerHelper 'timeSpent', (duration, units = 'hours') ->
-    if typeof duration isnt 'number'
-      throw new Error('Invalid duration: not a number')
+  if typeof duration isnt 'number'
+    throw new Error('Invalid duration: not a number')
 
-    return moment.duration(duration, units).humanize()
+  return moment.duration(duration, units).humanize()
 
-UI.registerHelper 'fromNow', (date) ->
+UI.registerHelper 'mFromNow', (date, withoutSuffix = false) ->
+  # Calling this ensure this helper is re-evaluated whenever the current language changes
+  i18n.getLanguage()
+
   momentDate = moment(date)
 
   if not momentDate.isValid()
     throw new Error('Invalid date: not a Date nor a moment')
 
-  return momentDate.fromNow()
+  return momentDate.fromNow(withoutSuffix)
 
+UI.registerHelper 'mAge', (date) ->
+  # Calling this ensure this helper is re-evaluated whenever the current language changes
+  i18n.getLanguage()
 
-UI.registerHelper 'formatDate', (date, format = 'DD/MM/YYYY') ->
+  momentDate = moment(date)
+
+  if not momentDate.isValid()
+    throw new Error('Invalid date: not a Date nor a moment')
+
+  return momentDate.add(1, 'years').fromNow(true)
+
+UI.registerHelper 'mFormat', (date, format = 'DD/MM/YYYY') ->
+  # Calling this ensure this helper is re-evaluated whenever the current language changes
+  i18n.getLanguage()
+
   momentDate = moment(date)
 
   if not momentDate.isValid()
@@ -27,27 +45,13 @@ UI.registerHelper 'formatDate', (date, format = 'DD/MM/YYYY') ->
 
   return momentDate.format(format)
 
+UI.registerHelper 'mMonth', (date) ->
+  # Calling this ensure this helper is re-evaluated whenever the current language changes
+  i18n.getLanguage()
 
-UI.registerHelper 'mediumDate', (date) ->
-  momentDate = moment(date)
-
-  if not momentDate.isValid()
-    throw new Error('Invalid date: not a Date nor a moment')
-
-  return momentDate.format('LL');
-
-UI.registerHelper 'month', (date) ->
   momentDate = moment(date)
 
   if not momentDate.isValid()
     throw new Error('Invalid date: not a Date nor a moment')
 
   return momentDate.format('MMMM');
-
-UI.registerHelper 'shortMonthAndYear', (date) ->
-  momentDate = moment(date)
-
-  if not momentDate.isValid()
-    throw new Error('Invalid date: not a Date nor a moment')
-
-  return momentDate.format('MMM YYYY');

@@ -3,10 +3,9 @@ Template.newSession.events
     $(event.currentTarget).parent('label').toggleClass 'btn-success'
     return false
 
-  'click .btn-new-participant': (event, template) ->
-    event.preventDefault()
-    Session.set 'showNewParticipant', true
-    return false
+  'click .btn-send-report': (event, template) ->
+    Session.set 'send-report', true
+    return
 
   'submit form': (event, template) ->
     event.preventDefault()
@@ -27,10 +26,15 @@ Template.newSession.events
     sessionId = Collections.Sessions.insert session
 
     if sessionId
-      Notifications.success '', 'Session enregistrée !', timeout: 5000
-      Router.go 'course', _id: template.data.course._id
+      Notifications.success '', TAPi18n.__ "changesPersisted", timeout: 5000
+
+      if Session.get 'send-report' then Router.go 'sendSessionReport',
+        courseId: template.data.course._id
+        _id: sessionId
+      else
+        Router.go 'participants', _id: template.data.course._id
     else
-      Notifications.error '', 'Une erreur est survenue...'
+      Notifications.error '', TAPi18n.__ "anErrorOccured"
     return false
 
 Template.newSession.helpers
@@ -38,6 +42,12 @@ Template.newSession.helpers
     return Session.get 'showNewParticipant'
 
 Template.newSession.rendered = ->
+  template = @
   @$('.datepicker').datepicker().datepicker 'set', moment()
+
+  Tracker.autorun ->
+    momentFormat = moment.localeData(i18n.getLanguageCode()).longDateFormat('L')
+    template.$('.datepicker').data('datepicker').format = momentFormat
+
   @$('.btn-checkbox').button()
   return

@@ -1,18 +1,21 @@
 {
-  "appTitle": "Mes cours",
+  "appTitle": "Mes sessions",
   "showNavigation": "Afficher navigation",
   "save": "Enregistrer",
   "add": "Ajouter",
   "edit": "Modifier",
   "cancel": "Annuler",
   "remove": "Supprimer",
-  "addParticipant": "Ajouter un participant",
+  "newParticipant": "Nouveau participant",
   "newSession": "Nouvelle session",
+  "newSessionForCourse": "Nouvelle session de __course__",
+  "sessionReportForCourse": "Rapport de session pour __course__",
   "sessions": "Sessions",
   "participants": "Participants",
   "numberOfParticipants": "1 participant",
   "numberOfParticipants_plural": "%s participants",
   "age": "%s ans",
+  "birthDate": "Date de naissance",
   "howToSetSessionParticipants": "Cliquez sur chaque participant présent à cette session",
   "sessionNotes": "Notes sur cette session",
   "recipients": "Destinataire(s)",
@@ -20,11 +23,50 @@
   "owner": "Propriétaire",
   "language": "Langue",
   "name": "Nom",
+  "course": "Cours",
+  "subscribedAt": "Inscrit le",
+  "date": "Date",
+  "notes": "Notes",
+  "recipients": "Destinataires",
+  "subject": "Sujet",
+  "mailBody": "Message",
+  "send": "Envoyer",
+  "phone": "Téléphone",
+  "emergencyPhone": "Tél. urgence",
   "fullname": "Nom complet",
   "profile": "Mon compte",
   "signOut": "Se déconnecter",
+  "allCourses": "Tous mes cours",
+  "newCourse": "Nouveau cours",
+  "sendReport": "Envoyer un rapport",
+  "courseCreated": "Cours créé !",
+  "participantAdded": "participant ajouté !",
+  "changesPersisted": "Modifications enregistrées !",
+  "anErrorOccured": "Une erreur est survenue, veuillez ré-essayer plus tard",
+  "invalidLanguage": "Langue non supportée",
+  "createFirstCourse": "Créer votre premier cours",
+  "sessionForCourse": "Session de __course__",
+  "wasAttending": "présent",
+  "wasMissing": "absent",
+  "participantsList": "Liste des inscrits",
+  "reportSend": "Rapport envoyé !",
+  "pleaseWait": "Veuillez patienter...",
   "home": {
-    "title": "Bienvenue sur Mes Cours !",
+    "title": "Bienvenue sur Mes Sessions !",
     "subtitle": "L'application pour gérer vos cours"
+  },
+  "emails": {
+    "enrollAccount": {
+      "subject": "Mes séances - activez votre compte",
+      "text": "Bonjour, \r\n\n Pour activer votre compte, merci de cliquer sur le lien suivant:\r\n__url__"
+    },
+    "resetPassword": {
+      "subject": "Mes séances - ré-initialisation du mot de passe",
+      "text": "Bonjour, \r\n\n Pour ré-initialiser du mot de passe, merci de cliquer sur le lien suivant:\r\n\n__url__"
+    },
+    "verifyEmail": {
+      "subject": "Mes séances - validez votre adresse email",
+      "text": "Bonjour, \r\n\n Pour valider votre adresse email, merci de cliquer sur le lien suivant:\r\n\n__url__"
+    }
   }
 }

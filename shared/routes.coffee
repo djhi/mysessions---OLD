@@ -6,25 +6,25 @@ Router.map ->
     path: '/profile'
 
   @route 'allCourses',
-    path: '/all'
+    path: '/courses'
     waitOn: ->
       return Meteor.subscribe 'mycourses'
     data: ->
       return courses: Collections.Courses.find()
 
   @route 'newCourse',
-    path: '/course/new'
+    path: '/courses/new'
 
   @route 'editCourse',
-    path: '/course/:_id/edit'
+    path: '/courses/:_id/edit'
     waitOn: ->
       return Meteor.subscribe 'course', @params._id
     data: ->
       return course: Collections.Courses.findOne @params._id
 
-  @route 'course',
+  @route 'participants',
     template: 'participants'
-    path: '/course/:_id'
+    path: '/courses/:_id/participants'
     waitOn: ->
       return [
         Meteor.subscribe 'course', @params._id
@@ -36,15 +36,45 @@ Router.map ->
         participants: Collections.Participants.find {courseId: @params._id}, {sort: name: 1}
       }
 
-  @route 'editParticipant',
-    path: '/partipants/:_id/edit'
+  @route 'newParticipant',
+    path: '/courses/:_id/participants/new'
     waitOn: ->
-      return Meteor.subscribe 'participant', @params._id
+      return [
+        Meteor.subscribe 'course', @params._id
+      ]
     data: ->
-      return participant: Collections.Participants.findOne @params._id
+      return {
+        course: Collections.Courses.findOne @params._id
+      }
+
+  @route 'editParticipant',
+    path: '/courses/:courseId/participants/:_id/edit'
+    waitOn: ->
+      return [
+        Meteor.subscribe 'course', @params.courseId
+        Meteor.subscribe 'participant', @params._id
+      ]
+    data: ->
+      return {
+        course: Collections.Courses.findOne @params.courseId
+        participant: Collections.Participants.findOne @params._id
+      }
+
+  @route 'participant',
+    path: '/courses/:courseId/participants/:_id'
+    waitOn: ->
+      return [
+        Meteor.subscribe 'course', @params.courseId
+        Meteor.subscribe 'participant', @params._id
+      ]
+    data: ->
+      return {
+        course: Collections.Courses.findOne @params.courseId
+        participant: Collections.Participants.findOne @params._id
+      }
 
   @route 'newSession',
-    path: '/course/:_id/sessions/new'
+    path: '/courses/:_id/sessions/new'
     waitOn: ->
       return [
         Meteor.subscribe 'course', @params._id
@@ -57,7 +87,7 @@ Router.map ->
       }
 
   @route 'editSession',
-    path: '/course/:courseId/sessions/:_id/edit'
+    path: '/courses/:courseId/sessions/:_id/edit'
     waitOn: ->
       return [
         Meteor.subscribe 'course', @params.courseId
@@ -72,7 +102,7 @@ Router.map ->
       }
 
   @route 'session',
-    path: '/course/:courseId/sessions/:_id'
+    path: '/courses/:courseId/sessions/:_id'
     waitOn: ->
       return [
         Meteor.subscribe 'course', @params.courseId

@@ -1,9 +1,12 @@
 <template name="participants">
   <div class="container">
-    {{> coursePageHeader}}
+    {{> coursePageHeader course=course subtitle=subtitle}}
     <div class="row">
       <div class="col-md-12">
-        <a class="btn btn-primary btn-new-participant {{#if showNewParticipant}}hidden{{/if}}">{{_ 'addParticipant'}}</a>
+        <a class="btn btn-primary" href="{{pathFor 'newParticipant' _id=course._id}}">
+          <i class="fa fa-bell-o"></i>
+          <span class="hidden-xs">{{_ 'newParticipant'}}</span>
+        </a>
         <a class="btn btn-default" href="{{pathFor 'newSession' _id=course._id}}">
           <i class="fa fa-bell-o"></i>
           <span class="hidden-xs">{{_ 'newSession'}}</span>
@@ -12,12 +15,6 @@
           <i class="fa fa-bell"></i>
           <span class="hidden-xs">{{_ 'sessions'}}</span>
         </a>
-        {{#if showNewParticipant}}
-        <div class="row">
-          <hr />
-          {{>newParticipant course=course}}
-        </div>
-        {{/if}}
       </div>
     </div>
     {{#if $gt participants.count 0}}

@@ -1,14 +1,14 @@
 <template name="editSession">
   <div class="container">
     <div class="page-header">
-      <h1>Session de {{course.title}} du {{mdate session.date}}</h1>
+      <h1>{{mDate session.date}} : {{_ 'sessionForCourse' course=course.title}} </h1>
     </div>
     <form class="form-horizontal">
       <div class="form-group">
-        <label for="date" class="sr-only">Date</label>
+        <label for="date" class="sr-only">{{_ 'date'}}</label>
         <div class="input-group">
-          <span class="input-group-addon">Date</span>
-          <input id="date" type="text" name="date" class="form-control datepicker" value="{{mdate session.date}}"/>
+          <span class="input-group-addon">{{_ 'date'}}</span>
+          <input id="date" type="text" name="date" class="form-control datepicker" value="{{mDate session.date}}"/>
         </div>
       </div>
       <p class="text-info">
@@ -24,20 +24,15 @@
       </div>
       {{/each}}
       <div class="form-group">
-        <a type="button" class="btn btn-block btn-primary btn-new-participant">Nouveau</a>
+        <a href="{{pathFor 'newParticipant' _id=course._id}}" class="btn btn-block btn-primary">{{_ 'newParticipant'}}</a>
       </div>
-      {{#if showNewParticipant}}
-        <div class="form-group">
-        {{>newParticipant course=course}}
-        </div>
-      {{/if}}
       <div class="form-group">
-        <label for="notes" class="sr-only">">Notes</label>
+        <label for="notes" class="sr-only">">{{_ 'notes'}}</label>
         <textarea id="notes" name="notes" class="form-control" rows="8" placeholder="{{_ 'sessionNotes'}}" value="{{session.notes}}"></textarea>
       </div>
       <div class="form-group">
       {{> _submit}}
-      <button type='submit' class="btn btn-default btn-send-report">{{_ 'sendReport'}}</button>
+      <button type="submit" class="btn btn-default btn-send-report">{{_ 'sendReport'}}</button>
       {{> _cancel}}
       </div>
     </form>
