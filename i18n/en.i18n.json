@@ -8,8 +8,8 @@
   "remove": "Remove",
   "newParticipant": "New participant",
   "newSession": "New session",
-  "newSessionForCourse": "New session of %s",
-  "sessionReportForCourse": "Session report for %s",
+  "newSessionForCourse": "New session of __course__",
+  "sessionReportForCourse": "Session report for __course__",
   "sessions": "Sessions",
   "participants": "Participants",
   "numberOfParticipants": "1 participant",
@@ -45,7 +45,7 @@
   "anErrorOccured": "An error occured, please try again later",
   "invalidLanguage": "Unsupported language",
   "createFirstCourse": "Create your first course",
-  "sessionForCourse": "Session of %s",
+  "sessionForCourse": "Session of __course__",
   "wasAttending": "present",
   "wasMissing": "missing",
   "participantsList": "Participants list",
@@ -54,5 +54,19 @@
   "home": {
     "title": "Welcome on My Sessions !",
     "subtitle": "An application to manage your courses"
+  },
+  "emails": {
+    "enrollAccount": {
+      "subjet": "My Sessions - activate your account",
+      "text": "Bonjour, \r\n\n Please use the following link to activate your account:\r\n __url__"
+    },
+    "resetPassword": {
+      "subjet": "My Sessions - reset your password",
+      "text": "Bonjour, \r\n\n Please use the following link to reset your password:\r\n\n__url__"
+    },
+    "verifyEmail": {
+      "subjet": "My Sessions - verify your email",
+      "text": "Bonjour, \r\n\n Please use the following link to verify your email:\r\n\n__url__"
+    }
   }
 }

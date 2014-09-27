@@ -4,9 +4,8 @@ Template.editSession.events
     return false
 
   'click .btn-send-report': (event, template) ->
-    event.preventDefault()
     Session.set 'send-report', true
-    return false
+    return
 
   'submit form': (event, template) ->
     event.preventDefault()

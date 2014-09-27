@@ -4,9 +4,8 @@ Template.newSession.events
     return false
 
   'click .btn-send-report': (event, template) ->
-    event.preventDefault()
     Session.set 'send-report', true
-    return false
+    return
 
   'submit form': (event, template) ->
     event.preventDefault()
@@ -28,7 +27,12 @@ Template.newSession.events
 
     if sessionId
       Notifications.success '', TAPi18n.__ "changesPersisted", timeout: 5000
-      Router.go 'participants', _id: template.data.course._id
+
+      if Session.get 'send-report' then Router.go 'sendSessionReport',
+        courseId: template.data.course._id
+        _id: sessionId
+      else
+        Router.go 'participants', _id: template.data.course._id
     else
       Notifications.error '', TAPi18n.__ "anErrorOccured"
     return false

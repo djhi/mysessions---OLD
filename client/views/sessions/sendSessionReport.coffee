@@ -17,7 +17,7 @@ Template.sendSessionReport.created = ->
     participantList += '\r\n'
 
   sessionReport =
-    subject: moment(session.date).format('L') + ': ' + TAPi18n.__ 'sessionReportForCourse', course.title
+    subject: moment(session.date).format('L') + ': ' + TAPi18n.__ 'sessionReportForCourse', course: course.title
     body: session.notes + '\r\n\r\n' + TAPi18n.__ 'participantsList' + ':\r\n\r\n' + participantList
 
   @data.sessionReport = sessionReport

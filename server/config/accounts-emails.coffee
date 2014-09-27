@@ -1,22 +1,37 @@
-Accounts.emailTemplates.siteName = "Mes séances"
-Accounts.emailTemplates.from = "Mes séance <no-reply@mysessions.fr>"
+Accounts.emailTemplates.siteName = 'My sessions'
+Accounts.emailTemplates.from = 'My sessions' + ' <no-reply@mysessions.fr>'
 
 Accounts.emailTemplates.enrollAccount.subject = (user) ->
-  fullname = if user and user.profile and user.profile.fullname then user.profile.fullname else undefined
-
-  return "Bienvenue sur Mes séances" + if fullname then ', ' + user.profile.fullname else ''
+  language = getLanguage user
+  return TAPi18n.__ 'emails.enrollAccount.subject', {}, language
 
 Accounts.emailTemplates.enrollAccount.text = (user, url) ->
-  return "Pour activer votre compte, merci de cliquer sur le lien suivant:\r\n\n" + url
+  url = sanitizeUrl url
+  language = getLanguage user
+  return TAPi18n.__ 'emails.enrollAccount.text', url: url, language
 
 Accounts.emailTemplates.resetPassword.subject = (user) ->
-  return "Mes séances - ré-initialisation du mot de passe"
+  language = getLanguage user
+  return TAPi18n.__ 'emails.resetPassword.subject', {}, language
 
 Accounts.emailTemplates.resetPassword.text = (user, url) ->
-  return "Pour ré-initialiser du mot de passe, merci de cliquer sur le lien suivant:\r\n\n" + url
+  console.log url
+  url = sanitizeUrl url
+  console.log url
+  language = getLanguage user
+  return TAPi18n.__ 'emails.resetPassword.text', url: url, language
 
 Accounts.emailTemplates.verifyEmail.subject = (user) ->
-  return "Mes séances - vérification de votre adresse email"
+  language = getLanguage user
+  return TAPi18n.__ 'emails.verifyEmail.subject', {}, language
 
 Accounts.emailTemplates.verifyEmail.text = (user, url) ->
-  return "Pour valider votre adresse email, merci de cliquer sur le lien suivant:\r\n\n" + url
+  url = sanitizeUrl url
+  language = getLanguage user
+  return TAPi18n.__ 'emails.verifyEmail.text', url: url, language
+
+sanitizeUrl = (url) ->
+  return url.replace(/\/\//g, '/').replace('http:/', 'http://')
+
+getLanguage = (user) ->
+  return if user and user.profile and user.profile.language then user.profile.language else 'en'
