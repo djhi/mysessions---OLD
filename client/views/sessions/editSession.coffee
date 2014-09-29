@@ -41,6 +41,7 @@ Template.editSession.helpers
     return this._id in Template.instance().data.session.participantsIds
 
 Template.editSession.rendered = ->
+  template = @
   @$('.datepicker').datepicker()
 
   Tracker.autorun ->

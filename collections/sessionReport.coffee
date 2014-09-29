@@ -3,10 +3,8 @@
 
 @Schemas.SessionReport = new SimpleSchema
   recipients:
-    type: String
+    type: [String]
     i18nLabel: 'recipients'
-    min: 3
-    max: 200
 
   subject:
     type: String

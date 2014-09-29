@@ -24,3 +24,9 @@ AutoForm.inputValueHandlers
 
     if moment.isMoment selectedMoment then return selectedMoment.toDate()
     return ''
+
+  'input.selectized': ->
+    value = this.val()
+
+    if value and value.length > 0 then return value.split ','
+    return []

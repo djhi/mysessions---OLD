@@ -32,3 +32,9 @@ Meteor.publish "session", (id) ->
   return [
     Collections.Sessions.find _id:id
   ]
+
+Meteor.publish "recipients", (courseId) ->
+  return [
+    # publish all recipients saved by this user
+    Collections.ReportRecipients.find {userId: @userId}, {fields: {email: 1}, sort: {email: 1}}
+  ]
