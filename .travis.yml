@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '0.10'
+before_install:
+- make install
+services:
+- mongodb
+notifications:
+  email:
+  - gildas.garcia@gmail.com
+deploy:
+  provider: heroku
+  api_key:
+    secure: tUbD+0uwBhdCAl/XNGrQZXQpmHgjnURqeWgSD5y1L1yjYNXHSiG0D+vk60Lfo62XbCY8AQ6BmRF/Te2kEzs7wkXCXDs7DqljOtXzRZXPgK5jSWoPKFFvdullCkbk2EqYMgkRd6FAilxtRsDT3fJM5FjYUuPlluuR+6v2jSOmEso=
+  app: mysessions
+  on:
+    repo: djhi/mysessions
