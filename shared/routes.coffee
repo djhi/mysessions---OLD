@@ -122,6 +122,7 @@ Router.map ->
       return [
         Meteor.subscribe 'course', @params.courseId
         Meteor.subscribe 'participants', @params.courseId
+        Meteor.subscribe 'recipients'
         Meteor.subscribe 'session', @params._id
       ]
     data: ->
@@ -129,6 +130,7 @@ Router.map ->
         course: Collections.Courses.findOne @params.courseId
         session: Collections.Sessions.findOne @params._id
         participants: Collections.Participants.find {courseId: @params.courseId}, {sort: name: 1}
+        recipients: Collections.ReportRecipients.find {}
       }
 
   @route 'sessions',

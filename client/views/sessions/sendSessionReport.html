@@ -4,7 +4,12 @@
       <h1>{{mDate session.date}} : {{_ 'sessionReportForCourse' course=course.title}} </h1>
     </div>
     {{#autoForm schema=sessionReportSchema doc=sessionReport id="sessionReportForm" type="method" meteormethod="sendSessionReport"}}
-      {{> afQuickField name='recipients'}}
+      <div class="form-group {{#if afFieldIsInvalid name='recipients'}}has-error{{/if}}">
+        {{> afFieldLabel name='recipients' }}
+        {{> afFieldInput name='recipients' type='text'}}
+        <span class="help-block">{{{afFieldMessage name=this.atts.name}}}</span>
+        <span class="help-block">{{_ 'recipientsHelp'}}</span>
+      </div>
       {{> afQuickField name='subject'}}
       {{> afQuickField name='body' type='textarea' rows=10}}
 
