@@ -13,6 +13,7 @@ notifications:
   - gildas.garcia@gmail.com
 deploy:
   provider: heroku
+  strategy: git
   api_key:
     secure: kgLPpp5hBFaaJPdehOS0H924sdO0DUtKkHRjXpLCLedstEia6ZXbcdkMXdgIHdW28XDpJaKJJTk2+MsGJnPG4QRjpVw2/Sg9Wx6e5eP/neocOWs3Ct/hmDgVMLd1TcB0cRi671KI0pXNYAD5PoKeiobSocXc94ipCNs6XRmexC8=
   app: mysessions
