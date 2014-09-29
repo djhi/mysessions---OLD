@@ -22,9 +22,5 @@ after_success:
   - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
   - echo "   CheckHostIP no" >> ~/.ssh/config
   - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-  # Clear your current Heroku SSH keys:
-  - heroku keys:clear
-  # Add a new SSH key to Heroku
-  - yes | heroku keys:add
   # Push to Heroku!
   - yes | git push heroku master
