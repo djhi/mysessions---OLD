@@ -1,4 +1,7 @@
 language: node_js
+env:
+  global:
+    - secure: tUbD+0uwBhdCAl/XNGrQZXQpmHgjnURqeWgSD5y1L1yjYNXHSiG0D+vk60Lfo62XbCY8AQ6BmRF/Te2kEzs7wkXCXDs7DqljOtXzRZXPgK5jSWoPKFFvdullCkbk2EqYMgkRd6FAilxtRsDT3fJM5FjYUuPlluuR+6v2jSOmEso=
 node_js:
   - '0.10'
 before_install:
@@ -9,8 +12,8 @@ notifications:
   email:
     - gildas.garcia@gmail.com
 after_success:
-  # Install the Heroku gem
-  - gem install heroku
+  # Install the Heroku toolbelt
+  - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
   # Add the heroku git repository
   - git remote add heroku git@heroku.com:mysessions.git
   # Turn off warnings about SSH keys:
