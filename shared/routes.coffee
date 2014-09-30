@@ -1,6 +1,10 @@
 Router.map ->
   @route 'home',
     path: '/'
+    waitOn: ->
+      return Meteor.subscribe 'mycourses'
+    data: ->
+      return courses: Collections.Courses.find()
 
   @route 'profile',
     path: '/profile'
