@@ -1,13 +1,18 @@
 <template name="courseItem">
-  <a href="{{pathFor 'participants'}}">{{title}}</a>
-  <div class="pull-right">
-    <a class="btn btn-xs btn-default" href="{{pathFor 'editCourse'}}">
-      <i class="fa fa-pencil"></i>
-      <span class="hidden-xs">{{_ 'edit'}}</span>
-    </a>
-    <a class="btn btn-xs btn-primary" href="{{pathFor 'newSession'}}">
-      <i class="fa fa-bell-o"></i>
-      <span class="hidden-xs">{{_ 'newSession'}}</span>
-    </a>
+  <div class="panel panel-default">
+    <div class="panel-heading"><a href="{{pathFor 'participants'}}">{{title}}</a></div>
+    <div class="panel-body">
+      Panel content
+    </div>
+    <div class="panel-footer">
+      <a class="btn btn-xs btn-default" href="{{pathFor 'editCourse'}}">
+        <i class="fa fa-pencil"></i>
+        <span class="hidden-xs">{{_ 'edit'}}</span>
+      </a>
+      <a class="btn btn-xs btn-primary" href="{{pathFor 'newSession'}}">
+        <i class="fa fa-bell-o"></i>
+        <span class="hidden-xs">{{_ 'newSession'}}</span>
+      </a>
+    </div>
   </div>
 </template>
