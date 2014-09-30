@@ -1,10 +1,6 @@
 Router.map ->
   @route 'home',
     path: '/'
-    waitOn: ->
-      return Meteor.subscribe 'mycourses'
-    data: ->
-      return courses: Collections.Courses.find()
 
   @route 'profile',
     path: '/profile'
@@ -14,7 +10,7 @@ Router.map ->
     waitOn: ->
       return Meteor.subscribe 'mycourses'
     data: ->
-      return courses: Collections.Courses.find()
+      return courses: Collections.Courses.find {}, sort: title: 1
 
   @route 'newCourse',
     path: '/courses/new'
@@ -147,7 +143,7 @@ Router.map ->
     data: ->
       return {
         course: Collections.Courses.findOne @params._id
-        sessions: Collections.Sessions.find courseId:@params._id
+        sessions: Collections.Sessions.find {courseId:@params._id}, sort: date: -1
       }
 
   @route 'notFound',
