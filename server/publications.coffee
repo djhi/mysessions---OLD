@@ -8,7 +8,7 @@ Meteor.publish "course", (id) ->
 
 Meteor.publish "mycourses", ->
   return [
-    Collections.Courses.find {userId: @userId}, {fields: title: 1}
+    Collections.Courses.find {userId: @userId}, {fields: title: 1, participantsCount: 1, lastSession: 1}
   ]
 
 Meteor.publish "participant", (id) ->
