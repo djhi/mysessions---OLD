@@ -1,11 +1,11 @@
-AutoForm.hooks null,
+AutoForm.addHooks null,
   beginSubmit: (formId, template) ->
-    submitButton = template.find '[type=submit]'
+    submitButton = template.$ '[type=submit]'
     if submitButton then submitButton.button 'loading'
     return
 
   endSubmit: (formId, template) ->
-    submitButton = template.find '[type=submit]'
+    submitButton = template.$ '[type=submit]'
     if submitButton then submitButton.button 'reset'
     return
 
