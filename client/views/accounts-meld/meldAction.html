@@ -1,0 +1,17 @@
+<template name="meldAction">
+  <div class="alert alert-warning">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>Another account registered with your email address already exists! Would you like to meld the two?</h4>
+      </div>
+      <div class="col-sm-10">
+        {{> meldDetails}}
+      </div>
+      <div class="col-sm-2">
+        <button type="button" id="meldActionYes" class="btn btn-success btn-block">Yes</button>
+        <button type="button" id="meldActionNotNow" class="btn btn-warning btn-block">Not Now</button>
+        <button type="button" id="meldActionNever" class="btn btn-danger btn-block">Never</button>
+      </div>
+    </div>
+  </div>
+</template>
