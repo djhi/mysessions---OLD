@@ -1,0 +1,24 @@
+<template name="accountsMeld">
+  {{#if visible}}
+    <div id="myModal" class="modal fade in" tabindex="-1" role="dialog" style="display: block;">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            {{#each questions}}
+              {{> meldAction}}
+            {{/each}}
+            {{#each melding}}
+              {{> meldingAction}}
+            {{/each}}
+            {{#each completed}}
+              {{> meldingCompleted}}
+            {{/each}}
+          </div>
+          <div class="modal-body new-section">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop fade in"></div>
+  {{/if}}
+</template>

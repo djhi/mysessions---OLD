@@ -1,4 +1,4 @@
-# My sessions - 0.3.3
+# My sessions - 0.4.0
 
 A simple application to manage sessions of recurring courses.
 
@@ -8,6 +8,8 @@ It also allows to you to send a report of a session to any contacts by email. Th
 
 ## Road map
 
-  - **0.4.0**: ability to share participants between courses
+  - **0.4.1**: ability to get recipients for reports from your google contacts
 
-  - **0.5.0**: ability to evaluate participants with several evaluation mechanisms (could be yes/no, a percentage, a rating, a simple number)
+  - **0.5.0**: ability to share participants between courses
+
+  - **0.6.0**: ability to evaluate participants with several evaluation mechanisms (could be yes/no, a percentage, a rating, a simple number)
