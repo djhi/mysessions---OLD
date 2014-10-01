@@ -1,4 +1,4 @@
-## 0.4.1
+## 0.4.2
 accounts-meld configuration moved to server side only
 
 ## 0.4.0
