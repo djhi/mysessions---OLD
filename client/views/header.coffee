@@ -1,4 +1,12 @@
 Template.header.events
+  # Hide the navbar when links and buttons are clicked if the navbar is
+  # displayed as a dropdown menu (on mobile)
+  'click.nav .navbar-collapse.in': (event, template) ->
+    navbar = template.$ event.currentTarget
+    target = template.$ event.target
+
+    if target.is 'a' || target.is 'button' then navbar.collapse 'hide'
+
   'click .btn-set-language': (event, template) ->
     event.preventDefault()
     i18n.setLanguage @code

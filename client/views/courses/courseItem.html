@@ -1,27 +1,27 @@
 <template name="courseItem">
-  <div class="panel panel-default">
-    <div class="panel-heading"><a href="{{pathFor 'participants'}}">{{title}}</a></div>
+  <div class="panel panel-default card card-course">
+    <div class="panel-heading">
+      <a href="{{pathFor 'participants'}}">{{title}}</a>
+      <a class="pull-right" href="{{pathFor 'editCourse'}}">{{_ 'edit'}}</a>
+    </div>
     <div class="panel-body">
-      <div class="row">
-        <div class="col-xs-12">
-          <strong>{{_ 'participants'}}: </strong>{{participantsCount}}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <strong>{{_ 'lastSession'}}:</strong>{{mDate lastSession.date}} {{_ 'withNumberOfParticipants' lastSession.participantsCount}}
-        </div>
-      </div>
+      <p>
+        <strong>{{_ 'participants'}}: </strong>{{participantsCount}}
+      </p>
+      {{#if lastSession}}
+      <p>
+        <strong>{{_ 'lastSession'}}: </strong>{{mDate lastSession.date}} {{_ 'withNumberOfParticipants' lastSession.participantsCount}}
+      </p>
+      {{else}}
+      <p>
+        <strong>{{_ 'lastSession'}}: </strong>{{_ 'noSession'}}
+      </p>
+      {{/if}}
     </div>
     <div class="panel-footer">
-      <a class="btn btn-xs btn-default" href="{{pathFor 'editCourse'}}">
-        <i class="fa fa-pencil"></i>
-        <span class="hidden-xs">{{_ 'edit'}}</span>
-      </a>
-      <a class="btn btn-xs btn-primary" href="{{pathFor 'newSession'}}">
-        <i class="fa fa-bell-o"></i>
-        <span class="hidden-xs">{{_ 'newSession'}}</span>
-      </a>
+      <a class="text-primary" href="{{pathFor 'newSession'}}">{{_ 'newSession'}}</a>
+      <a class="text-muted" href="{{pathFor 'participants'}}">{{_ 'participants'}}</a>
+      <a class="text-muted" href="{{pathFor 'sessions'}}">{{_ 'sessions'}}</a>
     </div>
   </div>
 </template>

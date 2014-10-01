@@ -1,6 +1,10 @@
 Router.map ->
   @route 'home',
     path: '/'
+    waitOn: ->
+      return Meteor.subscribe 'mycourses'
+    data: ->
+      return courses: Collections.Courses.find {}, sort: title: 1
 
   @route 'profile',
     path: '/profile'
@@ -122,16 +126,22 @@ Router.map ->
       return [
         Meteor.subscribe 'course', @params.courseId
         Meteor.subscribe 'participants', @params.courseId
-        Meteor.subscribe 'recipients'
         Meteor.subscribe 'session', @params._id
+        Meteor.subscribe 'recipients'
       ]
     data: ->
-      return {
-        course: Collections.Courses.findOne @params.courseId
-        session: Collections.Sessions.findOne @params._id
-        participants: Collections.Participants.find {courseId: @params.courseId}, {sort: name: 1}
-        recipients: Collections.ReportRecipients.find {}
-      }
+      if @ready()
+        session = Collections.Sessions.findOne @params._id
+        course = session.course()
+        participants = course.participants()
+        sessionReport = session.getDefaultReport()
+
+        return {
+          course: course
+          session: session
+          recipients: Collections.ReportRecipients.find {}
+          sessionReport: sessionReport
+        }
 
   @route 'sessions',
     path: '/course/:_id/sessions'

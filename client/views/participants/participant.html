@@ -1,37 +1,37 @@
 <template name="participant">
-  <li class="list-group-item clearfix">
-    <div class="input-group hidden-xs">
-      <span class="form-control">
-        <strong>{{name}} {{#if birthDate}}({{mAge birthDate withoutSuffix=true}}){{/if}}</strong>
-        {{#if phone}} - {{>phoneLink phone}}{{/if}}{{#if emergencyPhone}} ({{_ 'emergencyPhone'}}: {{>phoneLink emergencyPhone}}){{/if}}
-      </span>
-      <span class="input-group-btn">
-        <a href="{{pathFor 'editParticipant'}}" class="btn btn-default btn-edit">
-          <i class="fa fa-pencil"></i>
-          <span class="hidden-xs">{{_ 'edit'}}</span>
-        </a>
-        <a href="#" class="btn btn-danger btn-remove">
-          <i class="fa fa-trash"></i>
-          <span class="hidden-xs">{{_ 'remove'}}</span>
-        </a>
-      </span>
+  <div class="panel panel-default card card-participant">
+    <div class="panel-heading">
+      <a href="{{pathFor 'editParticipant'}}">{{name}}</a>
+      <a class="pull-right" href="{{pathFor 'editParticipant'}}">{{_ 'edit'}}</a>
     </div>
-    <div class="list-group-item-heading visible-xs">
-      <span class="pull-right">
-        <a href="#" class="btn btn-danger btn-remove">
-          <i class="fa fa-trash"></i>
-          <span class="hidden-xs">{{_ 'remove'}}</span>
-        </a>
-      </span>
-      <a class="btn btn-block btn-default btn-edit" href="{{pathFor 'editParticipant'}}">
-        {{name}}
-      </a>
+    <div class="panel-body">
+      <p>
+        <strong>{{_ 'age'}}: </strong>
+        {{#if birthDate}}
+          {{_ 'yearsOld' age}}
+        {{else}}
+          {{_ 'notAvailable'}}
+        {{/if}}
+      </p>
+      <p>
+        <strong>{{_ 'phone'}}: </strong>
+        {{#if phone}}
+          {{>phoneLink phone}}
+        {{else}}
+          {{_ 'notAvailable'}}
+        {{/if}}
+      </p>
+      <p>
+        <strong>{{_ 'emergencyPhone'}}: </strong>
+        {{#if emergencyPhone}}
+          {{>phoneLink emergencyPhone}}
+        {{else}}
+          {{_ 'notAvailable'}}
+        {{/if}}
+      </p>
     </div>
-    <div class="list-group-item-text visible-xs">
-      tél: {{>phoneLink phone}}
+    <div class="panel-footer">
+      <a href="#" class="text-muted btn-remove">{{_ 'remove'}}</a>
     </div>
-    <div class="list-group-item-text visible-xs">
-      urgence: {{>phoneLink emergencyPhone}}
-    </div>
-  </li>
+  </div>
 </template>

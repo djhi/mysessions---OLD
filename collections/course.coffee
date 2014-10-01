@@ -34,3 +34,10 @@
 
 @Collections.Courses = new Meteor.Collection 'courses'
 @Collections.Courses.attachSchema @Schemas.Course
+
+Collections.Courses.helpers
+  participants: ->
+    return Collections.Participants.find {courseId: @_id}, {sort: name: 1}
+
+  sessions: ->
+    return Collections.Sessions.find {courseId: @_id}, {sort: date: -1}
