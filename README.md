@@ -1,4 +1,4 @@
-# My sessions - 0.3.0
+# My sessions - 0.3.1
 
 A simple application to manage sessions of recurring courses.
 
@@ -8,4 +8,6 @@ It also allows to you to send a report of a session to any contacts by email. Th
 
 ## Road map
 
-  - **0.4.0**: ability to evaluate participants with several evaluation mechanisms (could be yes/no, a percentage, a rating, a simple number)
+  - **0.4.0**: ability to share participants between courses
+
+  - **0.5.0**: ability to evaluate participants with several evaluation mechanisms (could be yes/no, a percentage, a rating, a simple number)
