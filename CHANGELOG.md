@@ -1,3 +1,8 @@
+## 0.3.2
+
+Data migration for new required properties
+Correction of course's edition
+
 ## 0.3.1
 
 Better display of course, session and participant lists

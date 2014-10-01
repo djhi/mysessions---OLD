@@ -69,6 +69,7 @@ oauth2@1.1.0
 oauth@1.1.0
 observe-sequence@1.0.2
 ordered-dict@1.0.0
+percolatestudio:percolatestudio-migrations@0.7.1
 raix:handlebar-helpers@0.1.2
 random@1.0.0
 reactive-dict@1.0.3
