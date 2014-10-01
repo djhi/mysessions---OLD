@@ -1,3 +1,7 @@
+## 0.3.3
+
+Small fixes on session report template
+
 ## 0.3.2
 
 Data migration for new required properties
