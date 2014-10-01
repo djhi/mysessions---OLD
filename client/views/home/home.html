@@ -1,12 +1,19 @@
 <template name="home">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8">
-        <div class="page-header">
+      <div class="{{#if currentUser}}col-md-12{{else}}col-md-8{{/if}}">
+        <div class="jumbotron">
           <h1>{{_ "home.title"}} <div><small>{{_ "home.subtitle"}}</small></div></h1>
+          <p>Cette application a pour ambition de vous permettre de gérer les sessions/séances de vos cours.</p>
+          <p>Pour le moment, elle ne propose que le suivi de la présence des participants.</p>
+          <p>L'objectif est de proposer dès que possible des mécanismes de notations.</p>
           {{#if currentUser}}
-          <a class="btn btn-primary" href="{{pathFor 'allCourses'}}">{{_ "allCourses"}}</a>
-          <a class="btn btn-default" href="{{pathFor 'newCourse'}}">{{_ "newCourse"}}</a>
+            {{#if $gt courses.count 0}}
+              <a class="btn btn-primary" href="{{pathFor 'allCourses'}}">{{_ "allCourses"}}</a>
+              <a class="btn btn-default" href="{{pathFor 'newCourse'}}">{{_ "newCourse"}}</a>
+            {{else}}
+              <a class="btn btn-primary btn-lg" href="{{pathFor 'newCourse'}}">{{_ "createFirstCourse"}}</a>
+            {{/if}}
           {{/if}}
         </div>
       </div>

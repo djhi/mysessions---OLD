@@ -1,17 +1,17 @@
 <template name="sendSessionReport">
-  <div class="container">
+  <div class="container-fluid">
     <div class="page-header">
       <h1>{{mDate session.date}} : {{_ 'sessionReportForCourse' course=course.title}} </h1>
     </div>
     {{#autoForm schema=sessionReportSchema doc=sessionReport id="sessionReportForm" type="method" meteormethod="sendSessionReport"}}
       <div class="form-group {{#if afFieldIsInvalid name='recipients'}}has-error{{/if}}">
-        {{> afFieldLabel name='recipients' }}
+        {{> afFieldLabel name='recipients'}} }}
         {{> afFieldInput name='recipients' type='text'}}
         <span class="help-block">{{{afFieldMessage name=this.atts.name}}}</span>
         <span class="help-block">{{_ 'recipientsHelp'}}</span>
       </div>
-      {{> afQuickField name='subject'}}
-      {{> afQuickField name='body' type='textarea' rows=10}}
+      {{> afQuickField name='subject' value=sessionReport.subject}}
+      {{> afQuickField name='body' type='textarea' rows=10 value=sessionReport.body}}
 
       {{> _submit label=sendLabel}}
       {{> _cancel}}

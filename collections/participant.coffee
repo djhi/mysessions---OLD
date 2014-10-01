@@ -12,6 +12,14 @@
       if @isInsert then return new Date()
       return
 
+  userId:
+    type: String
+    i18nLabel: 'owner'
+    denyUpdate: true
+    autoValue: ->
+      if @isInsert then return Meteor.userId()
+      return
+
   courseId:
     type: String
     i18nLabel: 'course'
@@ -45,3 +53,11 @@
 
 @Collections.Participants = new Meteor.Collection 'participants'
 @Collections.Participants.attachSchema @Schemas.Participant
+
+Collections.Participants.helpers
+  course: ->
+    return Collections.Courses.findOne @courseId
+
+  age: ->
+    return moment().diff moment(@birthDate), 'years' if @birthDate
+    return undefined
