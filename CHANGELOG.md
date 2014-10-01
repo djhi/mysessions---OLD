@@ -1,3 +1,6 @@
+## 0.4.1
+accounts-meld configuration moved to server side only
+
 ## 0.4.0
 ability to log in with facebook and google
 
