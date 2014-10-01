@@ -2,7 +2,6 @@
   <div class="panel panel-default card card-participant">
     <div class="panel-heading">
       <a href="{{pathFor 'editParticipant'}}">{{name}}</a>
-      <a class="pull-right" href="{{pathFor 'editParticipant'}}">{{_ 'edit'}}</a>
     </div>
     <div class="panel-body">
       <p>
@@ -31,7 +30,10 @@
       </p>
     </div>
     <div class="panel-footer">
-      <a href="#" class="text-muted btn-remove">{{_ 'remove'}}</a>
+      <ul class="list-unstyled">
+        <li><a class="text-primary" href="{{pathFor 'editParticipant'}}">{{_ 'edit'}}</a></li>
+        <li><a href="#" class="text-muted btn-remove">{{_ 'remove'}}</a></li>
+      </ul>
     </div>
   </div>
 </template>

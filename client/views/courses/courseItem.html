@@ -2,7 +2,6 @@
   <div class="panel panel-default card card-course">
     <div class="panel-heading">
       <a href="{{pathFor 'participants'}}">{{title}}</a>
-      <a class="pull-right" href="{{pathFor 'editCourse'}}">{{_ 'edit'}}</a>
     </div>
     <div class="panel-body">
       <p>
@@ -19,9 +18,13 @@
       {{/if}}
     </div>
     <div class="panel-footer">
-      <a class="text-primary" href="{{pathFor 'newSession'}}">{{_ 'newSession'}}</a>
-      <a class="text-muted" href="{{pathFor 'participants'}}">{{_ 'participants'}}</a>
-      <a class="text-muted" href="{{pathFor 'sessions'}}">{{_ 'sessions'}}</a>
+      <ul class="list-unstyled">
+        <li><a class="text-primary" href="{{pathFor 'newSession'}}">{{_ 'newSession'}}</a></li>
+        <li><a class="text-muted" href="{{pathFor 'participants'}}">{{_ 'participants'}}</a></li>
+        <li><a class="text-muted" href="{{pathFor 'sessions'}}">{{_ 'sessions'}}</a></li>
+        <li><a class="text-muted" href="{{pathFor 'editCourse'}}">{{_ 'edit'}}</a></li>
+        <li><a href="#" class="text-muted btn-remove">{{_ 'remove'}}</a></li>
+      </ul>
     </div>
   </div>
 </template>

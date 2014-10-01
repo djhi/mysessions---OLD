@@ -63,6 +63,7 @@ if Meteor.isClient
       body = if session.notes then session.notes + '\r\n\r\n' else ''
       body += TAPi18n.__ 'participantsList'
       body += ':\r\n\r\n' + participantList
+      body += '\r\n\r\n' + Meteor.user().profile.fullname
 
       return {
         subject: moment(session.date).format('L') + ': ' + TAPi18n.__ 'sessionReportForCourse', course: course.title
