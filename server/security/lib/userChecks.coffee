@@ -1,5 +1,9 @@
 @isLoggedIn = (userId) ->
-  return userId?
+  result = userId?
+  console.log 'isLoggedIn: ' + result
+  return result
 
 @isNotLoggedIn = (userId) ->
-  return not userId?
+  result = not userId?
+  console.log 'isNotLoggedIn: ' + result
+  return result
