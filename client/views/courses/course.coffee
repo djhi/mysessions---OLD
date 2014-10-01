@@ -1,4 +1,4 @@
-Template.participant.events
+Template.course.events
   'click .btn-remove': (event, template) ->
     event.preventDefault()
 
@@ -9,7 +9,7 @@ Template.participant.events
     ,
       (error, confirmed) ->
         if confirmed
-          Collections.Participants.remove template.data._id, (error) ->
+          Collections.Courses.remove template.data._id, (error) ->
             if error
               Notifications.error '', TAPi18n.__ 'anErrorOccured'
               return

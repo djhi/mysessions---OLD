@@ -15,6 +15,8 @@ Meteor.startup ->
           date: lastSession.date
           participantsCount: lastSession.participantsIds.length
 
+    return
+
   Collections.Sessions.after.update (userId, doc, fieldNames, modifier, options) ->
     # Get the last session ordered by date
     lastSession = Collections.Sessions.findOne
@@ -31,6 +33,8 @@ Meteor.startup ->
           date: lastSession.date
           participantsCount: lastSession.participantsIds.length
 
+    return
+
   Collections.Sessions.after.remove (userId, doc, fieldNames, modifier, options) ->
     # Get the last session ordered by date
     lastSession = Collections.Sessions.findOne
@@ -46,3 +50,5 @@ Meteor.startup ->
         lastSession:
           date: lastSession.date
           participantsCount: lastSession.participantsIds.length
+
+    return
