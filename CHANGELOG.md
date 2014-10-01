@@ -1,3 +1,6 @@
+## 0.4.0
+ability to log in with facebook and google
+
 ## 0.3.3
 
 Small fixes on session report template
