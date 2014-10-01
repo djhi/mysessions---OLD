@@ -1,30 +1,19 @@
 <template name="session">
-<li class="list-group-item clearfix">
-  <div class="input-group hidden-xs">
-    <span class="form-control">
-      <strong>{{mDate date}}</strong> - ({{_ 'numberOfParticipants' participantsIds.length count=participantsIds.length}})
-    </span>
-    <span class="input-group-btn">
-      <a href="{{pathFor 'editSession'}}" class="btn btn-default btn-edit">
-        <i class="fa fa-pencil"></i>
-        <span class="hidden-xs">{{_ 'edit'}}</span>
-      </a>
-      <a href="#" class="btn btn-danger btn-remove">
-        <i class="fa fa-trash"></i>
-        <span class="hidden-xs">{{_ 'remove'}}</span>
-      </a>
-    </span>
+  <div class="panel panel-default card card-participant">
+    <div class="panel-heading">
+      <a href="{{pathFor 'editSession'}}"><strong>{{mDate date}}</strong></a>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>{{_ 'participants'}}: </strong>{{participantsIds.length}}
+      </p>
+    </div>
+    <div class="panel-footer">
+      <ul class="list-unstyled">
+        <li><a href="{{pathFor 'sendSessionReport'}}" class="text-primary">{{_ 'report'}}</a></li>
+        <li><a class="text-muted" href="{{pathFor 'editSession'}}">{{_ 'edit'}}</a></li>
+        <li><a href="#" class="text-muted btn-remove">{{_ 'remove'}}</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="list-group-item-heading visible-xs">
-    <span class="pull-right">
-      <a href="#" class="btn btn-danger btn-remove">
-        <i class="fa fa-trash"></i>
-        <span class="hidden-xs">{{_ 'remove'}}</span>
-      </a>
-    </span>
-    <a class="btn btn-block btn-default btn-edit" href="{{pathFor 'editSession'}}">
-      <strong>{{date}}</strong> - ({{_ 'numberOfParticipants' participantsIds.length count=participantsIds.length}})
-    </a>
-  </div>
-</li>
 </template>

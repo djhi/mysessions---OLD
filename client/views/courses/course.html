@@ -1,0 +1,30 @@
+<template name="course">
+  <div class="panel panel-default card card-course">
+    <div class="panel-heading">
+      <a href="{{pathFor 'participants'}}">{{title}}</a>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>{{_ 'participants'}}: </strong>{{participantsCount}}
+      </p>
+      {{#if lastSession}}
+      <p>
+        <strong>{{_ 'lastSession'}}: </strong>{{mDate lastSession.date}} {{_ 'withNumberOfParticipants' lastSession.participantsCount}}
+      </p>
+      {{else}}
+      <p>
+        <strong>{{_ 'lastSession'}}: </strong>{{_ 'noSession'}}
+      </p>
+      {{/if}}
+    </div>
+    <div class="panel-footer">
+      <ul class="list-unstyled">
+        <li><a class="text-primary" href="{{pathFor 'newSession'}}">{{_ 'newSession'}}</a></li>
+        <li><a class="text-muted" href="{{pathFor 'participants'}}">{{_ 'participants'}}</a></li>
+        <li><a class="text-muted" href="{{pathFor 'sessions'}}">{{_ 'sessions'}}</a></li>
+        <li><a class="text-muted" href="{{pathFor 'editCourse'}}">{{_ 'edit'}}</a></li>
+        <li><a href="#" class="text-muted btn-remove">{{_ 'remove'}}</a></li>
+      </ul>
+    </div>
+  </div>
+</template>

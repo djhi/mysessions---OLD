@@ -1,3 +1,8 @@
+## 0.3.1
+
+Better display of course, session and participant lists
+Ability to delete courses, sessions and participants
+
 ## 0.3.0
 
 Recipients are now automatically saved after a sending a session report and are

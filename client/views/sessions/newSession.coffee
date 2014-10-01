@@ -44,6 +44,7 @@ Template.newSession.helpers
 Template.newSession.rendered = ->
   template = @
   @$('.datepicker').datepicker().datepicker 'set', moment()
+  Session.set 'send-report', false
 
   Tracker.autorun ->
     momentFormat = moment.localeData(i18n.getLanguageCode()).longDateFormat('L')

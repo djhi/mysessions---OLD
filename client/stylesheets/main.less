@@ -1,3 +1,7 @@
+@import 'lib/theme.variables.import.less';
+@import 'lib/bootstrap/bootstrap.import.less';
+@import 'lib/theme.import.less';
+
 @import 'variables';
 @import 'mixins';
 
@@ -13,7 +17,7 @@ img {
 // MISCELLANEOUS
 
 .browser-warning {
-  background: #BD3535;
+  background: @brand-warning;
   color: #fff;
   padding: 0.5em 0;
   text-align: center;
@@ -35,8 +39,8 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 
-  > .container {
-    padding: 60px 15px 0;
+  > .container-fluid {
+    padding: 60px @padding-base-horizontal 0;
   }
 
   > .footer {
@@ -45,14 +49,14 @@ body {
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
-    background-color: #f5f5f5;
+    background-color: @body-bg;
 
     > .container {
-      padding-right: 15px;
-      padding-left: 15px;
+      padding-right: @padding-base-horizontal;
+      padding-left: @padding-base-horizontal;
 
       .text-muted {
-        margin: 20px 0;
+        margin: padding-large-vertical 0;
       }
     }
   }

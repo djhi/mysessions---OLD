@@ -1,7 +1,7 @@
 <template name="participants">
-  <div class="container">
+  <div class="container-fluid">
     {{> coursePageHeader course=course subtitle=subtitle}}
-    <div class="row">
+    <div class="row buttons-bar">
       <div class="col-md-12">
         <a class="btn btn-primary" href="{{pathFor 'newParticipant' _id=course._id}}">
           <i class="fa fa-bell-o"></i>
@@ -17,21 +17,16 @@
         </a>
       </div>
     </div>
-    {{#if $gt participants.count 0}}
     <div class="row">
-      <div class="col-md-12">
-        <hr/>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <ul class="list-group">
-        {{#each participants}}
+      {{#each participants}}
+        <div class="col-xs-12 col-md-6 col-lg-4">
           {{> participant}}
-        {{/each}}
-        </ul>
-      </div>
+        </div>
+      {{else}}
+        <div class="col-xs-12">
+          <a class="btn btn-primary btn-lg" href="{{pathFor 'newParticipant'}}">{{_ "newParticipant"}}</a>
+        </div>
+      {{/each}}
     </div>
-    {{/if}}
   </div>
 </template>
