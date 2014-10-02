@@ -1,11 +1,17 @@
+## 0.5.0
+Ability to share participants between courses
+
+Participants are not bound to a single course anymore. They can be registered to
+multiple courses.
+
 ## 0.4.3
-ability to get recipients for reports from your google contacts
+Ability to get recipients for reports from your google contacts
 
 ## 0.4.2
 accounts-meld configuration moved to server side only
 
 ## 0.4.0
-ability to log in with facebook and google
+Ability to log in with facebook and google
 
 ## 0.3.3
 Small fixes on session report template
