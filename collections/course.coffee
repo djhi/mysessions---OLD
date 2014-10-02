@@ -26,11 +26,7 @@
     type: Schemas.SessionSummary
     i18nLabel: 'lastSession'
     optional: true
-
-  participantsCount:
-    type: Number
-    i18nLabel: 'numberOfParticipants'
-    defaultValue: 0
+    defaultValue: null
 
 @Collections.Courses = new Meteor.Collection 'courses'
 @Collections.Courses.attachSchema @Schemas.Course

@@ -8,7 +8,7 @@ Meteor.publish "course", (id) ->
 
 Meteor.publish "mycourses", ->
   return [
-    Collections.Courses.find {userId: @userId}, {fields: title: 1, participantsCount: 1, lastSession: 1}
+    Collections.Courses.find {userId: @userId}
   ]
 
 Meteor.publish "participant", (id) ->
@@ -22,10 +22,21 @@ Meteor.publish "sessions", (courseId) ->
     Collections.Sessions.find {courseId: courseId}, {sort: {date: -1}}
   ]
 
-Meteor.publish "participants", (courseId) ->
+Meteor.publish "participants", (courseId, limit = 10) ->
+  options =
+    sort: name: 1
+    limit: limit
+
+  if courseId
+    course = Collections.Courses.findOne courseId
+    filter =
+      _id: $in: course.participantsIds or []
+      userId: @userId
+  else
+    filter = userId: @userId
+
   return [
-    # publish all participants for this course
-    Collections.Participants.find {courseId: courseId}, {sort: name: 1}
+    Collections.Participants.find filter, options
   ]
 
 Meteor.publish "session", (id) ->

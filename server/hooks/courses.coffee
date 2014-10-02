@@ -7,9 +7,3 @@ Meteor.startup ->
     Collections.Participants.remove courseId: doc._id
 
     return
-
-  Collections.Courses.after.update (userId, doc) ->
-    participants = Collections.Participants.find courseId: doc._id
-
-    Collections.Courses.direct.update {_id: doc._id}, $set: participantsCount: participants.count()
-    return

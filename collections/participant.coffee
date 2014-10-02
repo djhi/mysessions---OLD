@@ -20,12 +20,6 @@
       if @isInsert then return Meteor.userId()
       return
 
-  courseId:
-    type: String
-    i18nLabel: 'course'
-    min: 3
-    max: 100
-
   name:
     type: String
     i18nLabel: 'name'
@@ -55,8 +49,8 @@
 @Collections.Participants.attachSchema @Schemas.Participant
 
 Collections.Participants.helpers
-  course: ->
-    return Collections.Courses.findOne @courseId
+  courses: ->
+    return Collections.Courses.find participantsIds: @_id
 
   age: ->
     return moment().diff moment(@birthDate), 'years' if @birthDate
