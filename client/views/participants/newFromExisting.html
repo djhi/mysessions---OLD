@@ -1,0 +1,17 @@
+<template name="newParticipantFromExisting">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2>{{_ "newParticipantsFromExisting"}}</h2>
+    </div>
+    <p class="alert alert-info" role="alert">
+      {{_ 'howToAddExistingParticipants'}}
+    </p>
+    <form id="existingParticipantsForm">
+      <div class="form-group">
+        <input type="text" class="form-control" name="participantsIds" placeholder="{{_ 'enterParticipantName'}}">
+      </div>
+      {{> _submit label='add'}}
+      {{> _cancel}}
+    </form>
+  </div>
+</template>

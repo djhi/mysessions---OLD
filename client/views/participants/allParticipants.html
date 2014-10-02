@@ -1,0 +1,23 @@
+<template name="allParticipants">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>{{_ 'allParticipants'}}</h1>
+    </div>
+
+    <div class="row buttons-bar">
+      <div class="col-md-12">
+        <a class="btn btn-primary" href="{{pathFor 'newParticipant'}}">{{_ 'new'}}</a>
+      </div>
+    </div>
+    <div class="row">
+      {{#each participants}}
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          {{> participant}}
+        </div>
+      {{/each}}
+    </div>
+    {{#if nextPath}}
+      <a class="btn btn-block btn-default" href="{{nextPath}}">{{_ 'loadMore'}}</a>
+    {{/if}}
+  </div>
+</template>

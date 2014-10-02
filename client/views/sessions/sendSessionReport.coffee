@@ -49,9 +49,6 @@ Template.sendSessionReport.helpers
     schema = Schemas.SessionReport
     return schema
 
-  sendLabel: ->
-    return TAPi18n.__ "send"
-
   recipients: ->
     return Collections.ReportRecipients.find {}, sort: {email : 1}
 

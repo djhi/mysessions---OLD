@@ -1,3 +1,3 @@
 Template._submit.helpers
   label: () ->
-    return @label or TAPi18n.__ 'save'
+    return TAPi18n.__ @label or 'save'

@@ -5,7 +5,7 @@ Template.header.events
     navbar = template.$ event.currentTarget
     target = template.$ event.target
 
-    if target.is 'a' || target.is 'button' then navbar.collapse 'hide'
+    if (target.is 'a' || target.is 'button') and target.is ':not(.dropdown-toggle)' then navbar.collapse 'hide'
 
   'click .btn-set-language': (event, template) ->
     event.preventDefault()

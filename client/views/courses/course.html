@@ -5,7 +5,12 @@
     </div>
     <div class="panel-body">
       <p>
-        <strong>{{_ 'participants'}}: </strong>{{participantsCount}}
+        <strong>{{_ 'participants'}}: </strong>
+        {{#if participantsIds}}
+          {{participantsIds.length}}
+        {{else}}
+          0
+        {{/if}}
       </p>
       {{#if lastSession}}
       <p>

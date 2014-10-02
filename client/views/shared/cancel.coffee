@@ -1,6 +1,6 @@
 Template._cancel.helpers
   label: () ->
-    return @label or TAPi18n.__ 'cancel'
+    return TAPi18n.__ @label or 'cancel'
 
 Template._cancel.events
   'click .btn-cancel': (event, template) ->

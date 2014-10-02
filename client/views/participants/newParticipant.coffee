@@ -1,5 +1,9 @@
 AutoForm.addHooks 'newParticipantForm',
-  onSuccess: (operation, result, template) ->
+  onSuccess: (operation, participantId, template) ->
+    $('.course-checkbox:checked').map ->
+      courseId = $(@).val()
+      Collections.Courses.update courseId, $addToSet: participantsIds: participantId
+
     previousRoute = Session.get 'previousRoute'
     if previousRoute
       Router.go previousRoute
@@ -7,12 +11,13 @@ AutoForm.addHooks 'newParticipantForm',
       Router.go 'participants', _id: template.data.course._id
     return
 
-Template.newParticipant.helpers
-  submitLabel: ->
-    return TAPi18n.__ 'add'
-
 Template.newParticipant.rendered = ->
   @$('.datepicker').datepicker
     viewMode: 'years'
 
   return
+
+Template.newParticipant.helpers
+  checked: ->
+    course = Template.instance().data.course
+    if course and course._id is @_id then return checked: 'checked'

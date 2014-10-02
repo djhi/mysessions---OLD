@@ -35,7 +35,3 @@ Meteor.startup ->
   @Collections.Participants.deny
     update: isNotOwner
     remove: isNotOwner
-
-  @Collections.Participants.deny
-    update: isNotCourseOwner
-    remove: isNotCourseOwner
