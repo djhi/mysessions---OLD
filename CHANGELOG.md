@@ -1,3 +1,8 @@
+## 0.5.2
+Corrections on session edition page: show participants (bug from 0.5.0)
+
+Added animated transitions between pages
+
 ## 0.5.0
 Ability to share participants between courses
 

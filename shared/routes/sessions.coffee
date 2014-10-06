@@ -7,10 +7,14 @@ Router.map ->
         Meteor.subscribe 'participants', @params._id
       ]
     data: ->
-      return {
-        course: Collections.Courses.findOne @params._id
-        participants: Collections.Participants.find {courseId: @params._id}, {sort: name: 1}
-      }
+      if @ready()
+        return {
+          course: Collections.Courses.findOne @params._id
+          participants: Collections.Participants.find
+            courseId: @params._id
+          ,
+            sort: name: 1
+        }
 
   @route 'editSession',
     path: '/courses/:courseId/sessions/:_id/edit'
@@ -21,11 +25,17 @@ Router.map ->
         Meteor.subscribe 'session', @params._id
       ]
     data: ->
-      return {
-        course: Collections.Courses.findOne @params.courseId
-        session: Collections.Sessions.findOne @params._id
-        participants: Collections.Participants.find {courseId: @params.courseId}, {sort: name: 1}
-      }
+      if @ready()
+        course = Collections.Courses.findOne @params.courseId
+
+        return {
+          course: course
+          session: Collections.Sessions.findOne @params._id
+          participants: Collections.Participants.find
+            _id: $in : course.participantsIds
+          ,
+            sort: name: 1
+        }
 
   @route 'session',
     path: '/courses/:courseId/sessions/:_id'
@@ -36,11 +46,15 @@ Router.map ->
         Meteor.subscribe 'session', @params._id
       ]
     data: ->
-      return {
-        course: Collections.Courses.findOne @params.courseId
-        session: Collections.Sessions.findOne @params._id
-        participants: Collections.Participants.find {courseId: @params.courseId}, {sort: name: 1}
-      }
+      if @ready()
+        return {
+          course: Collections.Courses.findOne @params.courseId
+          session: Collections.Sessions.findOne @params._id
+          participants: Collections.Participants.find
+            courseId: @params.courseId
+          ,
+            sort: name: 1
+        }
 
   @route 'sendSessionReport',
     path: '/course/:courseId/sessions/:_id/send-report'
@@ -61,7 +75,7 @@ Router.map ->
         return {
           course: course
           session: session
-          recipients: Collections.ReportRecipients.find {}
+          recipients: Collections.ReportRecipients.find()
           sessionReport: sessionReport
         }
 
@@ -73,7 +87,11 @@ Router.map ->
         Meteor.subscribe 'sessions', @params._id
       ]
     data: ->
-      return {
-        course: Collections.Courses.findOne @params._id
-        sessions: Collections.Sessions.find {courseId:@params._id}, sort: date: -1
-      }
+      if @ready()
+        return {
+          course: Collections.Courses.findOne @params._id
+          sessions: Collections.Sessions.find
+            courseId:@params._id
+          ,
+            sort: date: -1
+        }

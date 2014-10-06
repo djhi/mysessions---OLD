@@ -1,33 +1,31 @@
 <template name="participants">
-  <div class="container-fluid">
-    {{> coursePageHeader course=course subtitle=subtitle}}
-    <div class="row buttons-bar">
-      <div class="col-md-12">
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            {{_ 'addParticipant'}} <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="{{pathFor 'newParticipantForCourse' _id=course._id}}">{{_ 'new'}}</a></li>
-            <li><a href="{{pathFor 'newParticipantFromExisting' _id=course._id}}">{{_ 'alreadyRegistered'}}</a></li>
-          </ul>
-        </div>
-        <a class="btn btn-default" href="{{pathFor 'newSession' _id=course._id}}">{{_ 'newSession'}}</a>
-        <a class="btn btn-default" href="{{pathFor 'sessions' _id=course._id}}">{{_ 'sessions'}}</a>
+  {{> coursePageHeader course=course subtitle=subtitle}}
+  <div class="row buttons-bar">
+    <div class="col-md-12">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          {{_ 'addParticipant'}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="{{pathFor 'newParticipantForCourse' _id=course._id}}">{{_ 'new'}}</a></li>
+          <li><a href="{{pathFor 'newParticipantFromExisting' _id=course._id}}">{{_ 'alreadyRegistered'}}</a></li>
+        </ul>
       </div>
+      <a class="btn btn-default" href="{{pathFor 'newSession' _id=course._id}}">{{_ 'newSession'}}</a>
+      <a class="btn btn-default" href="{{pathFor 'sessions' _id=course._id}}">{{_ 'sessions'}}</a>
     </div>
-    <div class="row">
-      {{#each participants}}
-        <div class="col-xs-12 col-md-6 col-lg-4">
-          {{> participant}}
+  </div>
+  <div class="row">
+    {{#each participants}}
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        {{> participant}}
+      </div>
+    {{else}}
+      <div class="col-xs-12">
+        <div class="text-info">
+          {{_ "helpForNoParticipants"}}
         </div>
-      {{else}}
-        <div class="col-xs-12">
-          <div class="text-info">
-            {{_ "helpForNoParticipants"}}
-          </div>
-        </div>
-      {{/each}}
-    </div>
+      </div>
+    {{/each}}
   </div>
 </template>
