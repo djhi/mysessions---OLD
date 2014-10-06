@@ -1,4 +1,4 @@
-## 0.5.3
+## 0.5.4
 Corrections on session report: build participants list correctly
 
 ## 0.5.2
