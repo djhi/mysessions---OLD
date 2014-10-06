@@ -1,4 +1,4 @@
-# My sessions - 0.5.2
+# My sessions - 0.5.3
 
 A simple application to manage sessions of recurring courses.
 
