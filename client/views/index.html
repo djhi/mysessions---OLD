@@ -25,6 +25,8 @@
 
   {{> yield region="header"}}
   {{> notifications}}
-  {{> yield}}
+  <div id="mainContent" class="container-fluid">
+    {{> yield}}
+  </div>
   {{> yield region="footer"}}
 </template>

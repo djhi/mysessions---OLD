@@ -1,44 +1,42 @@
 <template name="editSession">
-  <div class="container-fluid">
-    <div class="page-header">
-      <h1>{{mDate session.date}} : {{_ 'sessionForCourse' course=course.title}} </h1>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <form>
-          <div class="form-group">
-            <label for="date" class="sr-only">{{_ 'date'}}</label>
-            <div class="input-group">
-              <span class="input-group-addon">{{_ 'date'}}</span>
-              <input id="date" type="text" name="date" class="form-control datepicker" value="{{mDate session.date}}"/>
-            </div>
+  <div class="page-header">
+    <h1>{{mDate session.date}} : {{_ 'sessionForCourse' course=course.title}} </h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <form>
+        <div class="form-group">
+          <label for="date" class="sr-only">{{_ 'date'}}</label>
+          <div class="input-group">
+            <span class="input-group-addon">{{_ 'date'}}</span>
+            <input id="date" type="text" name="date" class="form-control datepicker" value="{{mDate session.date}}"/>
           </div>
-          <p class="alert alert-info" role="alert">
-            {{_ 'howToSetSessionParticipants'}}
-          </p>
-          {{#each participants}}
-          <div class="form-group">
-            <div class="btn-group btn-group-full-width" data-toggle="buttons">
-              <label class="btn btn-block btn-default btn-checkbox {{#if wasPresent}}active btn-success{{/if}}">
-                <input type="checkbox" value="{{_id}}" checked={{wasPresent}} /> {{name}}
-              </label>
-            </div>
+        </div>
+        <p class="alert alert-info" role="alert">
+          {{_ 'howToSetSessionParticipants'}}
+        </p>
+        {{#each participants}}
+        <div class="form-group">
+          <div class="btn-group btn-group-full-width" data-toggle="buttons">
+            <label class="btn btn-block btn-default btn-checkbox {{#if wasPresent}}active btn-success{{/if}}">
+              <input type="checkbox" value="{{_id}}" checked={{wasPresent}} /> {{name}}
+            </label>
           </div>
-          {{/each}}
-          <div class="form-group">
-            <a href="{{pathFor 'newParticipant' _id=course._id}}" class="btn btn-block btn-primary">{{_ 'newParticipant'}}</a>
-          </div>
-          <div class="form-group">
-            <label for="notes" class="sr-only">">{{_ 'notes'}}</label>
-            <textarea id="notes" name="notes" class="form-control" rows="8" placeholder="{{_ 'sessionNotes'}}" value="{{session.notes}}"></textarea>
-          </div>
-          <div class="form-group">
-          {{> _submit}}
-          <button type="submit" class="btn btn-default btn-send-report">{{_ 'sendReport'}}</button>
-          {{> _cancel}}
-          </div>
-        </form>
-      </div>
+        </div>
+        {{/each}}
+        <div class="form-group">
+          <a href="{{pathFor 'newParticipant' _id=course._id}}" class="btn btn-block btn-primary">{{_ 'newParticipant'}}</a>
+        </div>
+        <div class="form-group">
+          <label for="notes" class="sr-only">">{{_ 'notes'}}</label>
+          <textarea id="notes" name="notes" class="form-control" rows="8" placeholder="{{_ 'sessionNotes'}}" value="{{session.notes}}"></textarea>
+        </div>
+        <div class="form-group">
+        {{> _submit}}
+        <button type="submit" class="btn btn-default btn-send-report">{{_ 'sendReport'}}</button>
+        {{> _cancel}}
+        </div>
+      </form>
     </div>
   </div>
 </template>

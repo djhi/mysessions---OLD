@@ -6,14 +6,20 @@ Router.configure
       to: 'header'
     footer:
       to: 'footer'
-
   onBeforeAction: ->
-    $('meta[name^="description"]').remove()
+    $('#mainContent').css 'display', 'none'
+    return
+  onAfterAction: ->
+    $('#mainContent').velocity "transition.slideLeftBigIn", 1000
     return
   unload: ->
     Session.set 'previousRoute', @path
     return
 
-Router.onBeforeAction 'loading'
-
-Router.onBeforeAction AccountsTemplates.ensureSignedIn, except: ['atSignIn', 'atSignUp', 'atForgotPwd', 'atResetPwd', 'home']
+Router.onBeforeAction AccountsTemplates.ensureSignedIn, except: [
+  'atSignIn'
+  'atSignUp'
+  'atForgotPwd'
+  'atResetPwd'
+  'home'
+]
