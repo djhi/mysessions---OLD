@@ -11,6 +11,9 @@ services:
 notifications:
   email:
   - gildas.garcia@gmail.com
+branches:
+  only:
+    - master
 deploy:
   provider: heroku
   strategy: git
