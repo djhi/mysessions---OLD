@@ -50,9 +50,14 @@ if Meteor.isClient
       participantList = ''
 
       participants.forEach (participant) ->
-        age = moment().diff moment(participant.birthDate), 'years'
-        participantList += participant.name + ' (' + TAPi18n.__("yearsOld", age) + '): '
+        participantList += participant.name
 
+        if participant.birthDate
+          age = moment().diff moment(participant.birthDate), 'years'
+          participantList += ' (' + TAPi18n.__("yearsOld", age) + ')'
+
+        participantList += ': '
+        
         if participant._id in session.participantsIds
           participantList += TAPi18n.__ "wasAttending"
         else

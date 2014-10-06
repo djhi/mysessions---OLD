@@ -69,7 +69,6 @@ Router.map ->
       if @ready()
         session = Collections.Sessions.findOne @params._id
         course = session.course()
-        participants = course.participants()
         sessionReport = session.getDefaultReport()
 
         return {

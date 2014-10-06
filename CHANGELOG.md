@@ -1,3 +1,6 @@
+## 0.5.3
+Corrections on session report: build participants list correctly
+
 ## 0.5.2
 Corrections on session edition page: show participants (bug from 0.5.0)
 
