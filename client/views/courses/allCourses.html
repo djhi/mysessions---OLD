@@ -1,23 +1,21 @@
 <template name="allCourses">
-  <div class="container-fluid">
-    <div class="page-header">
-      <h1>{{_ "allCourses"}}</h1>
+  <div class="page-header">
+    <h1>{{_ "allCourses"}}</h1>
+  </div>
+  <div class="row buttons-bar">
+    <div class="col-md-12">
+      <a class="btn btn-default" href="{{pathFor 'newCourse'}}">{{_ 'newCourse'}}</a>
     </div>
-    <div class="row buttons-bar">
-      <div class="col-md-12">
-        <a class="btn btn-default" href="{{pathFor 'newCourse'}}">{{_ 'newCourse'}}</a>
+  </div>
+  <div class="row">
+    {{#each courses}}
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        {{> course}}
       </div>
-    </div>
-    <div class="row">
-      {{#each courses}}
-        <div class="col-xs-12 col-md-6 col-lg-4">
-          {{> course}}
-        </div>
-      {{else}}
-        <div class="col-xs-12">
-          <a class="btn btn-primary btn-lg" href="{{pathFor 'newCourse'}}">{{_ "createFirstCourse"}}</a>
-        </div>
-      {{/each}}
-    </div>
+    {{else}}
+      <div class="col-xs-12">
+        <a class="btn btn-primary btn-lg" href="{{pathFor 'newCourse'}}">{{_ "createFirstCourse"}}</a>
+      </div>
+    {{/each}}
   </div>
 </template>

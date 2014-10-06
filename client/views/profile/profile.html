@@ -1,21 +1,19 @@
 <template name="profile">
-  <div class="container-fluid">
-    <div class="page-header">
-      <h1>Vos informations personnelles</h1>
+  <div class="page-header">
+    <h1>Vos informations personnelles</h1>
+  </div>
+
+  {{#autoForm schema=schemaProfile id="editProfileForm" type="method" meteormethod="updateProfile"}}
+    <div class="form-group {{#if afFieldIsInvalid name='fullname'}}has-error{{/if}}">
+      {{> afFieldLabel name='fullname'}}
+      {{> afFieldInput name='fullname' value=fullname}}
+      <span class="help-block">{{{afFieldMessage name=fullname}}}</span>
+      <span class="help-block">Votre nom sera utilisé dans les mails de rapport si vous choisissez d'en envoyer</span>
     </div>
 
-    {{#autoForm schema=schemaProfile id="editProfileForm" type="method" meteormethod="updateProfile"}}
-      <div class="form-group {{#if afFieldIsInvalid name='fullname'}}has-error{{/if}}">
-        {{> afFieldLabel name='fullname'}}
-        {{> afFieldInput name='fullname' value=fullname}}
-        <span class="help-block">{{{afFieldMessage name=fullname}}}</span>
-        <span class="help-block">Votre nom sera utilisé dans les mails de rapport si vous choisissez d'en envoyer</span>
-      </div>
+    {{> afQuickField name='language' options=languages value=currentLanguage}}
 
-      {{> afQuickField name='language' options=languages value=currentLanguage}}
-
-      {{> _submit}}
-      {{> _cancel}}
-    {{/autoForm}}
-  </div>
+    {{> _submit}}
+    {{> _cancel}}
+  {{/autoForm}}
 </template>
