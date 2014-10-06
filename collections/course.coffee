@@ -33,7 +33,13 @@
 
 Collections.Courses.helpers
   participants: ->
-    return Collections.Participants.find {courseId: @_id}, {sort: name: 1}
+    return Collections.Participants.find
+      _id: $in: @participantsIds
+    ,
+      sort: name: 1
 
   sessions: ->
-    return Collections.Sessions.find {courseId: @_id}, {sort: date: -1}
+    return Collections.Sessions.find
+      courseId: @_id
+    ,
+      sort: date: -1
