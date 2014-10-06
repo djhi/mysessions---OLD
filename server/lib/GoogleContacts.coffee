@@ -95,7 +95,13 @@ GoogleContacts::refreshAccessToken = (refreshToken) ->
     client_secret: @consumerSecret
     grant_type: "refresh_token"
 
+  console.log '------- Google data ------'
+  console.log data
+
   body = qs.stringify(data)
+
+  console.log '------- Google data ------'
+
   opts =
     host: "accounts.google.com"
     port: 443
@@ -103,6 +109,7 @@ GoogleContacts::refreshAccessToken = (refreshToken) ->
     method: "POST"
     headers:
       "Content-Type": "application/x-www-form-urlencoded"
+      "GData-Version": "3.0"
       "Content-Length": body.length
 
   requestFuture = new Future
