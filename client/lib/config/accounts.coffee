@@ -1,9 +1,8 @@
-Meteor.startup ->
-  Accounts.ui.config
-    requestPermissions:
-      facebook: ['email', 'user_friends', 'read_friendlists']
-      google: ['https://www.google.com/m8/feeds']
+Accounts.ui.config
+  requestPermissions:
+    facebook: ['email', 'user_friends', 'read_friendlists']
+    google: ['https://www.google.com/m8/feeds']
 
-    requestOfflineToken: google: true
+  requestOfflineToken: google: true
 
-    passwordSignupFields: 'USERNAME_AND_EMAIL'
+  passwordSignupFields: 'USERNAME_AND_EMAIL'
