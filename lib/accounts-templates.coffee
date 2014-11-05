@@ -12,6 +12,6 @@ AccountsTemplates.configure
   showForgotPasswordLink: true
   continuousValidation: true
   showAddRemoveServices: true
-  homeRoutePath: '/all'
+  homeRoutePath: '/'
 
 AccountsTemplates.init()

@@ -1,6 +1,11 @@
 Template.newSession.events
   'change [type=checkbox]': (event, template) ->
-    $(event.currentTarget).parent('label').toggleClass 'btn-success'
+    checkbox = $(event.currentTarget)
+    label = checkbox.parent 'label'
+
+    label.toggleClass 'btn-success'
+    checkbox.blur()
+    label.blur()
     return false
 
   'click .btn-send-report': (event, template) ->
@@ -26,7 +31,7 @@ Template.newSession.events
     sessionId = Collections.Sessions.insert session
 
     if sessionId
-      Notifications.success '', TAPi18n.__ "changesPersisted", timeout: 5000
+      Notifications.success()
 
       if Session.get 'send-report' then Router.go 'sendSessionReport',
         courseId: template.data.course._id
@@ -34,7 +39,7 @@ Template.newSession.events
       else
         Router.go 'participants', _id: template.data.course._id
     else
-      Notifications.error '', TAPi18n.__ "anErrorOccured"
+      Notifications.error()
     return false
 
 Template.newSession.helpers

@@ -11,9 +11,9 @@ Template.session.events
         if confirmed
           Collections.Sessions.remove template.data._id, (error) ->
             if error
-              Notifications.error '', TAPi18n.__ 'anErrorOccured'
+              Notifications.error()
               return
             else
-              Notifications.success '', TAPi18n.__ 'changesPersisted', 5000
+              Notifications.success()
 
     return false

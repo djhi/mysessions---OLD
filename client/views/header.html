@@ -17,10 +17,10 @@
         <div class="collapse navbar-collapse" id="main-navbar">
           <ul class="nav navbar-nav">
             {{#if currentUser}}
-            <li class="{{ isActiveRoute 'allCourses' }}"><a href="{{pathFor 'allCourses'}}">{{_ "allCourses"}}</a></li>
-            <li class="{{ isActiveRoute 'newCourse' }}"><a href="{{pathFor 'newCourse'}}">{{_ "newCourse"}}</a></li>
-            <li class="{{ isActiveRoute 'allParticipants' }}"><a href="{{pathFor 'allParticipants'}}">{{_ "allParticipants"}}</a></li>
-            <li class="{{ isActiveRoute 'newParticipant' }}"><a href="{{pathFor 'newParticipant'}}">{{_ "newParticipant"}}</a></li>
+            <li class="{{ isActiveRoute regex='allCourses' }}"><a href="{{pathFor 'allCourses'}}">{{_ "allCourses"}}</a></li>
+            <li class="{{ isActiveRoute regex='newCourse' }}"><a href="{{pathFor 'newCourse'}}">{{_ "newCourse"}}</a></li>
+            <li class="{{ isActiveRoute regex='allParticipants' }}"><a href="{{pathFor 'allParticipants'}}">{{_ "allParticipants"}}</a></li>
+            <li class="{{ isActiveRoute regex='newParticipant' }}"><a href="{{pathFor 'newParticipant'}}">{{_ "newParticipant"}}</a></li>
             {{/if}}
           </ul>
           <ul class="nav navbar-nav navbar-right">

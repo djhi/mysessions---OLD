@@ -1,6 +1,7 @@
+Router.plugin 'loading', loadingTemplate: 'loading'
+
 Router.configure
   layoutTemplate: 'layout'
-  loadingTemplate: 'loading'
   yieldTemplates:
     header:
       to: 'header'
@@ -8,6 +9,7 @@ Router.configure
       to: 'footer'
   onBeforeAction: ->
     $('#mainContent').css 'display', 'none'
+    @next()
     return
   onAfterAction: ->
     $('#mainContent').velocity "transition.slideLeftBigIn", 1000

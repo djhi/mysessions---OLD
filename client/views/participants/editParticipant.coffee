@@ -1,6 +1,7 @@
 AutoForm.addHooks 'editParticipantForm',
   onSuccess: (operation, result, formId) ->
-    Router.go Session.get 'previousRoute'
+    if Session.get 'previousRoute'
+      Router.go Session.get 'previousRoute'
     return
 
 Template.editParticipant.rendered = ->
@@ -23,7 +24,7 @@ Template.editParticipant.events
     Collections.Courses.update @_id, $addToSet: participantsIds: participant._id
 
     return false
-    
+
   'click .btn-unsubscribe': (event, template) ->
     event.preventDefault()
     participant = Template.instance().data.participant

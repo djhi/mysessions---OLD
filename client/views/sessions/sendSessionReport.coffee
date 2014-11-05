@@ -26,7 +26,7 @@ Template.sendSessionReport.rendered = ->
 
         if error
           console.log error
-          Notifications.error '', TAPi18n.__ 'googleContactsError'
+          Notifications.error TAPi18n.__ 'googleContactsError'
 
         if contacts
           googleContacts = _.map contacts, (contact) ->
@@ -54,4 +54,4 @@ Template.sendSessionReport.helpers
 
 AutoForm.addHooks 'sessionReportForm',
   onSuccess: (operation, result, template) ->
-    Notifications.success '', TAPi18n.__ 'reportSend'
+    Notifications.success TAPi18n.__ 'reportSend'

@@ -54,21 +54,48 @@ if Meteor.isClient
 
         if participant.birthDate
           age = moment().diff moment(participant.birthDate), 'years'
-          participantList += ' (' + TAPi18n.__("yearsOld", age) + ')'
+          participantList += ' (' + TAPi18n.__('yearsOld', age) + ')'
 
         participantList += ': '
-        
+
         if participant._id in session.participantsIds
-          participantList += TAPi18n.__ "wasAttending"
+          participantList += TAPi18n.__ 'wasAttending'
         else
-          participantList += TAPi18n.__ "wasMissing"
+          participantList += TAPi18n.__ 'wasMissing'
+
+        if participant.phone
+          participantList += '\r\n\t'
+          participantList += TAPi18n.__('phone') + ': ' + participant.phone
+
+        if participant.emergencyPhone
+          participantList += '\r\n\t'
+          participantList += TAPi18n.__('emergencyPhone') + ': ' + participant.emergencyPhone
+
+        if participant.address
+          participantList += '\r\n\t'
+          participantList += TAPi18n.__('address') + ': ' + participant.address
+
+        if participant.city or participant.zipCode
+          participantList += '\r\n\t'
+          if participant.city
+            participantList += TAPi18n.__('city') + ': ' + participant.city
+            if participant.zipCode then participantList += ' ('
+
+          if participant.zipCode
+            if not participant.city then participantList += TAPi18n.__('zipCode') + ': '
+            participantList += participant.zipCode
+            if participant.city then participantList += ')'
 
         participantList += '\r\n'
 
       body = if session.notes then session.notes + '\r\n\r\n' else ''
       body += TAPi18n.__ 'participantsList'
       body += ':\r\n\r\n' + participantList
-      body += '\r\n\r\n' + Meteor.user().profile.fullname
+      
+      if Meteor.user().profile.signature
+        body += '\r\n' + Meteor.user().profile.signature
+      else
+        body += '\r\n' + Meteor.user().profile.fullname
 
       return {
         subject: moment(session.date).format('L') + ': ' + TAPi18n.__ 'sessionReportForCourse', course: course.title
