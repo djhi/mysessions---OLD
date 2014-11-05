@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export NEW_RELIC_LICENSE_KEY="09a19361fcae18a484a9ff054a6cb71353ff02ae"
+export NEW_RELIC_APP_NAME="app30002591"
+export NEW_RELIC_NO_CONFIG_FILE=true

@@ -1,0 +1,10 @@
+{
+  "admin": {
+    "email": "chloe.millerand@gmail.com",
+    "password": "cheritou"
+  },
+  "email": {
+    "emailTo": "chloe.millerand@gmail.com",
+    "fullName": "Chloé Millerand"
+  }
+}
