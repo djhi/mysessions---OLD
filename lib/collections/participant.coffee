@@ -38,6 +38,27 @@
     min: 10
     max: 10
 
+  address:
+    type: String
+    i18nLabel: 'address'
+    optional: true
+    min: 3
+    max: 100
+
+  city:
+    type: String
+    i18nLabel: 'city'
+    optional: true
+    min: 3
+    max: 100
+
+  zipCode:
+    type: String
+    i18nLabel: 'zipCode'
+    optional: true
+    min: 5
+    max: 5
+
   emergencyPhone:
     type: String
     i18nLabel: 'emergencyPhone'

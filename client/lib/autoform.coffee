@@ -10,12 +10,12 @@ AutoForm.addHooks null,
     return
 
   onSuccess: (operation, result, formId) ->
-    Notifications.success '', TAPi18n.__("changesPersisted"), timeout: 5000
+    Notifications.success()
     return
 
   onError: (operation, error, formId) ->
     console.log error
-    Notifications.error '', TAPi18n.__ "anErrorOccured"
+    Notifications.error()
     return
 
 AutoForm.inputValueHandlers

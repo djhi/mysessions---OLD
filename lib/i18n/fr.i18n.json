@@ -71,6 +71,9 @@
   "identity": "Identitée",
   "subscribe": "Inscrire",
   "unsubscribe": "Désinscrire",
+  "address": "Adresse",
+  "city": "Ville",
+  "zipCode": "Code postal",
   "pleaseWait": "Veuillez patienter...",
   "home": {
     "title": "Bienvenue sur Mes Sessions !",

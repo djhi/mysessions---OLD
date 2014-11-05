@@ -28,9 +28,9 @@ Template.editSession.events
         notes: notes
         participantsIds: participants
 
-    if result > 0 then Notifications.success '', TAPi18n.__ "changesPersisted", timeout: 5000
+    if result > 0 then Notifications.success()
 
-    if result is 0 then Notifications.error '', TAPi18n.__ "anErrorOccured"
+    if result is 0 then Notifications.error()
 
     if Session.get 'send-report' then Router.go 'sendSessionReport',
       courseId: template.data.course._id

@@ -72,6 +72,9 @@
   "subscribe": "Subscribe",
   "unsubscribe": "Unsubscribe",
   "withNumberOfParticipants": "with %s participant(s)",
+  "address": "Adress",
+  "city": "City",
+  "zipCode": "Zip code",
   "home": {
     "title": "Welcome on My Sessions !",
     "subtitle": "An application to manage your courses"

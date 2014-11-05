@@ -43,7 +43,7 @@ splendido:accounts-meld
 # UI
 # ------------------------------------------------------------------------------
 gildaspk:moment-datepicker
-gfk:notifications
+zimme:bootstrap-growl
 anti:modals
 jeremy:selectize
 

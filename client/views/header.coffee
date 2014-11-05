@@ -17,7 +17,7 @@ Template.header.events
     Meteor.logout (error) ->
       if error
         console.log error
-        Notifications.error '', TAPi18n._ 'anErrorOccured'
+        Notifications.error()
       else
         Router.go 'home'
 
