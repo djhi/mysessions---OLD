@@ -9,19 +9,17 @@ standard-app-packages
 coffeescript
 less
 email
-amplify  # will be removed, find something else on atmosphere
 http
+alethes:lodash
 
 # Routing
 # ------------------------------------------------------------------------------
 iron:router
-mrt:iron-router-progress
 zimme:iron-router-active
-zimme:iron-router-auth
 
 # Collections
 # ------------------------------------------------------------------------------
-aldeed:autoform
+aldeed:autoform@3.2.0
 aldeed:collection2
 matb33:collection-hooks
 dburles:collection-helpers
@@ -30,7 +28,7 @@ percolatestudio:percolatestudio-migrations
 # i18n
 # ------------------------------------------------------------------------------
 tap:i18n
-mrt:moment
+mrt:moment@2.8.1
 gildaspk:moment-languages
 
 # Accounts
@@ -38,9 +36,8 @@ gildaspk:moment-languages
 accounts-ui
 accounts-password
 accounts-google
-accounts-facebook
 service-configuration
-splendido:accounts-templates-bootstrap
+useraccounts:bootstrap
 splendido:accounts-meld
 
 # UI
@@ -61,4 +58,4 @@ u2622:persistent-session
 wizonesolutions:underscore-string
 cmather:handlebars-server@0.2.0
 raix:handlebar-helpers
-alethes:pages
+#alethes:pages

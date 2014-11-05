@@ -1,6 +1,11 @@
 Template.newSession.events
   'change [type=checkbox]': (event, template) ->
-    $(event.currentTarget).parent('label').toggleClass 'btn-success'
+    checkbox = $(event.currentTarget)
+    label = checkbox.parent 'label'
+
+    label.toggleClass 'btn-success'
+    checkbox.blur()
+    label.blur()
     return false
 
   'click .btn-send-report': (event, template) ->

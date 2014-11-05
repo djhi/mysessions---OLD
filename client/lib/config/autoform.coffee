@@ -10,7 +10,7 @@ AutoForm.addHooks null,
     return
 
   onSuccess: (operation, result, formId) ->
-    Notifications.success '', TAPi18n.__ "changesPersisted", timeout: 5000
+    Notifications.success '', TAPi18n.__("changesPersisted"), timeout: 5000
     return
 
   onError: (operation, error, formId) ->

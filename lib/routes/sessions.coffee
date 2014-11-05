@@ -8,10 +8,12 @@ Router.map ->
       ]
     data: ->
       if @ready()
+        course = Collections.Courses.findOne @params._id
+
         return {
-          course: Collections.Courses.findOne @params._id
+          course: course
           participants: Collections.Participants.find
-            courseId: @params._id
+            _id: $in : course.participantsIds
           ,
             sort: name: 1
         }
@@ -47,11 +49,13 @@ Router.map ->
       ]
     data: ->
       if @ready()
+        course = Collections.Courses.findOne @params.courseId
+
         return {
-          course: Collections.Courses.findOne @params.courseId
+          course: course
           session: Collections.Sessions.findOne @params._id
           participants: Collections.Participants.find
-            courseId: @params.courseId
+            _id: $in : course.participantsIds
           ,
             sort: name: 1
         }
