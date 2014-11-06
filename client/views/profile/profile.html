@@ -7,15 +7,16 @@
     <div class="form-group {{#if afFieldIsInvalid name='fullname'}}has-error{{/if}}">
       {{> afFieldLabel name='fullname'}}
       {{> afFieldInput name='fullname' value=fullname}}
-      <span class="help-block">{{{afFieldMessage name=fullname}}}</span>
-      <span class="help-block">Votre nom sera utilisé dans les mails de rapport si vous choisissez d'en envoyer</span>
+      <span class="help-block">{{{afFieldMessage name='fullname'}}}</span>
+      <span class="help-block">Votre nom sera utilisé dans les mails de rapport si vous choisissez d'en envoyer et que vous n'avez pas défini de signature</span>
     </div>
 
     {{> afQuickField name='language' options=languages value=currentLanguage}}
 
     {{> afQuickField name='signature' value=signature type='textarea' rows=10}}
 
+    {{> atForm}}
+
     {{> _submit}}
-    {{> _cancel}}
   {{/autoForm}}
 </template>
