@@ -13,5 +13,3 @@ AccountsTemplates.configure
   continuousValidation: true
   showAddRemoveServices: true
   homeRoutePath: '/'
-
-AccountsTemplates.init()
