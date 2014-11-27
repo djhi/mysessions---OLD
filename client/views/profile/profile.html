@@ -5,7 +5,7 @@
 
   {{#autoForm schema=schemaProfile id="editProfileForm" type="method" meteormethod="updateProfile"}}
     <div class="form-group {{#if afFieldIsInvalid name='fullname'}}has-error{{/if}}">
-      {{> afFieldLabel name='fullname'}}
+      <label class="control-label">{{afFieldLabelText name='fullname'}}</label>
       {{> afFieldInput name='fullname' value=fullname}}
       <span class="help-block">{{{afFieldMessage name='fullname'}}}</span>
       <span class="help-block">Votre nom sera utilisé dans les mails de rapport si vous choisissez d'en envoyer et que vous n'avez pas défini de signature</span>
