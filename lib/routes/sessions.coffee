@@ -4,7 +4,7 @@ Router.map ->
     waitOn: ->
       return [
         Meteor.subscribe 'course', @params._id
-        Meteor.subscribe 'participants', @params._id
+        Meteor.subscribe 'participants', @params._id, 1000
       ]
     data: ->
       if @ready()
@@ -23,7 +23,7 @@ Router.map ->
     waitOn: ->
       return [
         Meteor.subscribe 'course', @params.courseId
-        Meteor.subscribe 'participants', @params.courseId
+        Meteor.subscribe 'participants', @params.courseId, 1000
         Meteor.subscribe 'session', @params._id
       ]
     data: ->
@@ -44,7 +44,7 @@ Router.map ->
     waitOn: ->
       return [
         Meteor.subscribe 'course', @params.courseId
-        Meteor.subscribe 'participants', @params.courseId
+        Meteor.subscribe 'participants', @params.courseId, 1000
         Meteor.subscribe 'session', @params._id
       ]
     data: ->
@@ -65,7 +65,7 @@ Router.map ->
     waitOn: ->
       return [
         Meteor.subscribe 'course', @params.courseId
-        Meteor.subscribe 'participants', @params.courseId
+        Meteor.subscribe 'participants', @params.courseId, 1000
         Meteor.subscribe 'session', @params._id
         Meteor.subscribe 'recipients'
       ]

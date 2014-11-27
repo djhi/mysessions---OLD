@@ -1,6 +1,6 @@
 ParticipantsController = RouteController.extend
   template: 'participants'
-  increment: 10
+  increment: 50
   limit: -> return parseInt(@params.postsLimit) || @increment
   findOptions: -> return sort: {name: 1}, limit: @limit()
   filters: ->

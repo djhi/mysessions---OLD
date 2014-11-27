@@ -1,5 +1,5 @@
-Accounts.emailTemplates.siteName = 'My sessions'
-Accounts.emailTemplates.from = 'My sessions' + ' <no-reply@mysessions.fr>'
+Accounts.emailTemplates.siteName = Meteor.settings.applicationName
+Accounts.emailTemplates.from = "#{Meteor.settings.applicationName} <#{Meteor.settings.defaultEmailAddress}>"
 
 Accounts.emailTemplates.enrollAccount.subject = (user) ->
   language = getLanguage user
