@@ -4,7 +4,7 @@
   </div>
   {{#autoForm schema=sessionReportSchema doc=sessionReport id="sessionReportForm" type="method" meteormethod="sendSessionReport"}}
     <div class="form-group {{#if afFieldIsInvalid name='recipients'}}has-error{{/if}}">
-      {{> afFieldLabel name='recipients'}}
+      <label class="control-label">{{afFieldLabelText name='recipients'}}</label>
       {{> afFieldInput name='recipients' type='text'}}
       <span class="help-block">{{{afFieldMessage name=this.atts.name}}}</span>
       <span class="help-block">{{_ 'recipientsHelp'}}</span>
