@@ -4,10 +4,6 @@ AutoForm.addHooks 'editParticipantForm',
       Router.go Session.get 'previousRoute'
     return
 
-Template.editParticipant.rendered = ->
-  @$('.datepicker').datepicker
-    viewMode: 'years'
-
 Template.editParticipant.helpers
   subscribed: () ->
     course = @

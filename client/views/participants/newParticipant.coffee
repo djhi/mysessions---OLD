@@ -18,9 +18,6 @@ AutoForm.addHooks 'newParticipantForm',
     return
 
 Template.newParticipant.rendered = ->
-  @$('.datepicker').datepicker
-    viewMode: 'years'
-
   Session.set 'course', @data.course
   return
 

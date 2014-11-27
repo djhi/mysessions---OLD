@@ -17,16 +17,10 @@ AutoForm.addHooks null,
     console.log error
     Notifications.error()
     return
-
-AutoForm.inputValueHandlers
-  'input.datepicker': ->
-    selectedMoment = this.datepicker 'get'
-
-    if moment.isMoment selectedMoment then return selectedMoment.toDate()
-    return ''
-
+###
   'input.selectized': ->
     value = this.val()
 
     if value and value.length > 0 then return value.split ','
     return []
+###
