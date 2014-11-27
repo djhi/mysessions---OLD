@@ -8,13 +8,20 @@ AutoForm.addHooks 'newParticipantForm',
     if previousRoute
       Router.go previousRoute
     else
-      Router.go 'participants', _id: template.data.course._id
+      course = Session.get 'course'
+      Session.set 'course', undefined
+
+      if course
+        Router.go 'participants', _id: course._id
+      else
+        Router.go 'allParticipants'
     return
 
 Template.newParticipant.rendered = ->
   @$('.datepicker').datepicker
     viewMode: 'years'
 
+  Session.set 'course', @data.course
   return
 
 Template.newParticipant.helpers
