@@ -103,6 +103,7 @@ Package.on_use(function (api) {
 
 	api.add_files([
 		"courses/templates.html",
+		"courses/events.coffee",
 		"courses/routes.coffee",
 	], 'client');
 

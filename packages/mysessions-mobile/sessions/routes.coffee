@@ -15,3 +15,5 @@ Router.map ->
           ,
             sort: date: -1
         }
+      else
+        return {}

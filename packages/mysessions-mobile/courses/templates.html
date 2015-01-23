@@ -24,7 +24,7 @@
   <div class="list card">
     <div class="item item-button-right">
       <h2>{{title}}</h2>
-      <button class="button button-positive" data-ion-popover="_coursePopover" data-course-id="{{_id}}">
+      <button class="button button-clear" data-ion-popover="_coursePopover" data-course-id="{{_id}}">
         {{#if isAndroid}}
         {{> ionIcon icon='android-more-vertical'}}
         {{else}}
@@ -46,6 +46,16 @@
         <strong>{{_ 'lastSession'}}: </strong>{{_ 'noSession'}}
       {{/if}}
     </div>
+    <div class="item tabs tabs-secondary tabs-icon-left">
+      <a class="tab-item" href="{{pathFor 'newSession'}}">
+        {{> ionIcon icon="plus-circled"}}
+        Nouvelle session
+      </a>
+      <a class="tab-item" href="{{pathFor 'newParticipant'}}">
+        {{> ionIcon icon="person-add"}}
+        Nouveau participant
+      </a>
+    </div>
   </div>
 </template>
 
@@ -53,20 +63,12 @@
   {{#ionPopover}}
   <div class="content">
     <div class="list">
-      <a class="item item-icon-right" href="{{pathFor 'newSession'}}">
-        Créer une nouvelle session
-        {{> ionIcon icon="plus-circled"}}
-      </a>
       <a class="item item-icon-right" href="{{pathFor 'sessions' _id=courseId}}">
-        Voir toutes les sessions
+        Sessions
         {{> ionIcon icon="navicon"}}
       </a>
-      <a class="item item-icon-right" href="{{pathFor 'newParticipant'}}">
-        Ajouter un participant
-        {{> ionIcon icon="person-add"}}
-      </a>
       <a class="item item-icon-right" href="{{pathFor 'participants'}}">
-        Voir tous les participants
+        Participants
         {{> ionIcon icon="person-stalker"}}
       </a>
     </div>
