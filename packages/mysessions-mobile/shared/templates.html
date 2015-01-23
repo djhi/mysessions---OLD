@@ -1,0 +1,35 @@
+<template name="layout">
+  {{#ionBody}}
+    {{#ionSideMenuContainer}}
+      {{#ionSideMenus}}
+
+        {{#ionSideMenu}}
+        {{/ionSideMenu}}
+
+      {{/ionSideMenus}}
+
+      {{#ionSideMenuContent}}
+
+        {{> ionNavBar class="bar-positive"}}
+
+        {{#ionNavView}}
+          {{> yield}}
+        {{/ionNavView}}
+
+        {{#ionFooterBar}}
+          <p>Built with Meteor and Ionic</p>
+        {{/ionFooterBar}}
+
+      {{/ionSideMenuContent}}
+
+    {{/ionSideMenuContainer}}
+  {{/ionBody}}
+</template>
+
+<template name="_cancel">
+  <button type="button" class="button button-clear" data-action="cancel">{{label}}</button>
+</template>
+
+<template name="_submit">
+  <button type="submit" class="button button-positive" data-loading-text="{{_ 'pleaseWait'}}">{{label}}</button>
+</template>

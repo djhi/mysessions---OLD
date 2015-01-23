@@ -1,0 +1,67 @@
+<template name="sessions">
+  {{#contentFor "headerTitle"}}
+  <h1 class="title">{{course.title}}</h1>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonLeft"}}
+  {{>ionNavBackButton path="courses" text=textback}}
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+  <a class="button pull-right button-clear" href="{{pathFor 'newSession'}}">
+    {{> ionIcon icon='plus-circled'}}
+  </a>
+  {{/contentFor}}
+
+  {{#ionContent}}
+    {{#each sessions}}
+      {{> _session}}
+    {{else}}
+
+    {{/each}}
+  {{/ionContent}}
+</template>
+
+<template name="_session">
+  <div class="list card">
+    <div class="item item-button-right">
+      <h2>{{mDate date}}</h2>
+      <button class="button button-positive" data-ion-popover="_sessionPopover">
+        {{#if isAndroid}}
+        {{> ionIcon icon='android-more-vertical'}}
+        {{else}}
+        {{> ionIcon icon='more'}}
+        {{/if}}
+      </button>
+    </div>
+    <div class="item item-body">
+      <strong>{{_ 'participants'}}: </strong>
+      {{#if participantsIds}}
+      {{participantsIds.length}}
+      {{else}}
+      0
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="_sessionPopover">
+  {{#ionPopover}}
+  <div class="content">
+    <div class="list">
+      <a class="item item-icon-right" href="{{pathFor 'sendSessionReport'}}">
+        {{_ 'report'}}
+        {{> ionIcon icon="email"}}
+      </a>
+      <a class="item item-icon-right" href="{{pathFor 'editSession'}}">
+        {{_ 'edit'}}
+        {{> ionIcon icon="edit"}}
+      </a>
+      <a class="item item-icon-right" href="#" data-action="session-remove" data-session-id="{{_id}}">
+        {{_ 'remove'}}
+        {{> ionIcon icon="close"}}
+      </a>
+    </div>
+  </div>
+  {{/ionPopover}}
+</template>

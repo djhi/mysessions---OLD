@@ -28,6 +28,7 @@ display_help() {
     --checkout         Use a Meteor git checkout
     --env <env>        Set the environment (development, test, production)
     --packages <path>  Tell Meteor about another packages folder
+    --mobile <os>      Run for mobile platform (android, iOS)
 
 
 EOF
@@ -67,14 +68,13 @@ start() {
 
 
   if [ "$NODE_ENV" == "production" ]; then
-    cd "$BUNDLE"
-    echo "Installing server npm packages..."
-    (cd programs/server && npm install)
-    echo "Starting your app in $NODE_ENV on port $PORT"
-    node main.js
+    echo "Starting your app in $NODE_ENV."
+    local CMD="$METEOR --settings $settings_file --production run $PLATFORM"
+    echo "$CMD"
+    eval $CMD
   else
     echo "Starting your app in $NODE_ENV."
-    local CMD="$METEOR --settings $settings_file"
+    local CMD="$METEOR --settings $settings_file run $PLATFORM"
     echo "$CMD"
     eval $CMD
   fi
@@ -91,6 +91,7 @@ else
     case $1 in
       -h|--help|help)       display_help ;;
       -e|--env)             export NODE_ENV="$2"; shift ;;
+      -m|--mobile)          export PLATFORM="$2"; shift ;;
       --checkout)           CHECKOUT=true ;;
       --packages)           export PACKAGE_DIRS="$2:$PACKAGE_DIRS"; shift ;;
       *)                    display_help ;;

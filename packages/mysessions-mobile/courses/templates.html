@@ -1,0 +1,98 @@
+<template name="courses">
+  {{#contentFor "headerTitle"}}
+  <h1 class="title">{{_ "allCourses"}}</h1>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonLeft"}}
+  <a class="button pull-right button-clear" href="{{pathFor 'newCourse'}}">
+    {{> ionIcon icon='plus-circled'}}
+  </a>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      {{#each courses}}
+        {{> _course}}
+      {{else}}
+
+      {{/each}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>
+
+<template name="_course">
+  <div class="list card">
+    <div class="item item-button-right">
+      <h2>{{title}}</h2>
+      <button class="button button-positive" data-ion-popover="_coursePopover" data-course-id="{{_id}}">
+        {{#if isAndroid}}
+        {{> ionIcon icon='android-more-vertical'}}
+        {{else}}
+        {{> ionIcon icon='more'}}
+        {{/if}}
+      </button>
+    </div>
+    <div class="item item-body">
+      <strong>{{_ 'participants'}}: </strong>
+      {{#if participantsIds}}
+      {{participantsIds.length}}
+      {{else}}
+      0
+      {{/if}}
+      <br/>
+      {{#if lastSession}}
+        <strong>{{_ 'lastSession'}}: </strong>{{mDate lastSession.date}} {{_ 'withNumberOfParticipants' lastSession.participantsCount}}
+      {{else}}
+        <strong>{{_ 'lastSession'}}: </strong>{{_ 'noSession'}}
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="_coursePopover">
+  {{#ionPopover}}
+  <div class="content">
+    <div class="list">
+      <a class="item item-icon-right" href="{{pathFor 'newSession'}}">
+        Créer une nouvelle session
+        {{> ionIcon icon="plus-circled"}}
+      </a>
+      <a class="item item-icon-right" href="{{pathFor 'sessions' _id=courseId}}">
+        Voir toutes les sessions
+        {{> ionIcon icon="navicon"}}
+      </a>
+      <a class="item item-icon-right" href="{{pathFor 'newParticipant'}}">
+        Ajouter un participant
+        {{> ionIcon icon="person-add"}}
+      </a>
+      <a class="item item-icon-right" href="{{pathFor 'participants'}}">
+        Voir tous les participants
+        {{> ionIcon icon="person-stalker"}}
+      </a>
+    </div>
+  </div>
+  {{/ionPopover}}
+</template>
+
+<template name='newCourse'>
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="courses" text=textback}}
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+  <h1 class="title">{{_ "newCourse"}}</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      {{#autoForm collection="Courses" id="newCourseForm" type="insert"}}
+        {{> afQuickField name='title' label-type="stacked"}}
+
+        <div class="padding">
+          {{> _submit}}
+          {{> _cancel}}
+        </div>
+      {{/autoForm}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>

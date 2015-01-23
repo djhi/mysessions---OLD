@@ -1,0 +1,28 @@
+<template name="home">
+  {{#ionHeaderBar class="bar-positive"}}
+  <h1 class="title">{{_ "appTitle"}}</h1>
+
+  {{#unless currentUser}}
+  <button class="button pull-right button-positive" data-action="sign-in">
+    {{> ionIcon icon='key'}}
+  </button>
+  {{/unless}}
+  {{/ionHeaderBar}}
+
+  {{#ionContent padding=true}}
+    <div class="page-header">
+      <h1>{{_ "home.title"}} <div><small>{{_ "home.subtitle"}}</small></div></h1>
+    </div>
+    <p>Cette application a pour ambition de vous permettre de gérer les sessions/séances de vos cours.</p>
+    <p>Pour le moment, elle ne propose que le suivi de la présence des participants.</p>
+    <p>L'objectif est de proposer dès que possible des mécanismes de notations.</p>
+    {{#if currentUser}}
+      {{#if $gt courses.count 0}}
+        <a class="btn btn-primary" href="{{pathFor 'allCourses'}}">{{_ "allCourses"}}</a>
+        <a class="btn btn-default" href="{{pathFor 'newCourse'}}">{{_ "newCourse"}}</a>
+      {{else}}
+        <a class="btn btn-primary btn-lg" href="{{pathFor 'newCourse'}}">{{_ "createFirstCourse"}}</a>
+      {{/if}}
+    {{/if}}
+  {{/ionContent}}
+</template>

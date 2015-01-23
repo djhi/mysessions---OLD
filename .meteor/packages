@@ -10,54 +10,19 @@ coffeescript
 less
 email
 http
-alethes:lodash
-
-# Routing
-# ------------------------------------------------------------------------------
-iron:router
-zimme:iron-router-active
-
-# Collections
-# ------------------------------------------------------------------------------
-aldeed:autoform@4.0.7
-aldeed:collection2
-matb33:collection-hooks
-dburles:collection-helpers
-percolatestudio:percolatestudio-migrations
-
-# i18n
-# ------------------------------------------------------------------------------
-tap:i18n
-mrt:moment@2.8.1
-gildaspk:moment-languages
-
-# Accounts
-# ------------------------------------------------------------------------------
-accounts-ui
-accounts-password
-accounts-google
-service-configuration
-useraccounts:bootstrap
-splendido:accounts-meld
-
-# UI
-# ------------------------------------------------------------------------------
-gildaspk:moment-datepicker
-zimme:bootstrap-growl
-anti:modals
-jeremy:selectize
 
 # Performances
 # ------------------------------------------------------------------------------
 meteorhacks:kadira
 meteorhacks:zones
-mycartio:newrelic
 
 # Tools
 # ------------------------------------------------------------------------------
-u2622:persistent-session
-wizonesolutions:underscore-string
-cmather:handlebars-server@0.2.0
-raix:handlebar-helpers
-#alethes:pages
 mike:mocha
+
+gildaspk:mysessions-core
+#gildaspk:mysessions-web
+gildaspk:mysessions-mobile
+fourseven:scss@=1.0.0
+meteoric:ionic-sass@0.1.7
+meteoric:ionicons-sass@0.1.5

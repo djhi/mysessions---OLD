@@ -1,0 +1,25 @@
+$positive: #93C54B;
+
+@import '../../.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic';
+@import '../../.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons';
+
+.popover {
+  height: auto;
+}
+
+.item p {
+  margin-bottom: 0;
+}
+
+.item-button-left, .item-button-right {
+  button {
+    top: 16px;
+  }
+}
+
+#velocity-status-widget {
+  top: auto;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+}

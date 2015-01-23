@@ -1,0 +1,27 @@
+<template name="layout">
+  <!--[if lt IE 9]>
+  <div class="modal fade in" style="display:block">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4><i class="fa fa-exclamation"></i> Warning</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+            You are using an outdated browser.
+            Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a>
+            to properly view this website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade in"></div>
+  <![endif]-->
+
+  {{> yield region="header"}}
+  <div id="mainContent" class="container-fluid">
+    {{> yield}}
+  </div>
+  {{> yield region="footer"}}
+</template>

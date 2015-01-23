@@ -1,0 +1,46 @@
+<template name="newParticipant">
+  <div class="page-header">
+    <h1>{{_ "newParticipant"}}</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">{{_ 'identity'}}</div>
+        <div class="panel-body">
+          {{#autoForm collection="Participants" id="newParticipantForm" type="insert"}}
+            {{> afQuickField name='name' placeholder="schemaLabel"}}
+            {{> afQuickField name='birthDate' type='moment' placeholder="schemaLabel"}}
+            {{> afQuickField name='phone' placeholder="schemaLabel"}}
+            {{> afQuickField name='emergencyPhone' placeholder="schemaLabel"}}
+            {{> afQuickField name='address' placeholder="schemaLabel"}}
+            {{> afQuickField name='city' placeholder="schemaLabel"}}
+            {{> afQuickField name='zipCode' placeholder="schemaLabel"}}
+
+            {{> _submit label='add'}}
+            {{> _cancel}}
+          {{/autoForm}}
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">{{_ 'courses'}}</div>
+        <div class="panel-body">
+          <p class="alert alert-info">{{_ 'helpForParticipantCoursesSelection'}}</p>
+          <ul class="list-group">
+            {{#each courses}}
+              <li class="list-group-item">
+                <div class="checkbox checkbox-success">
+                  <input id="{{_id}}" class="course-checkbox" type="checkbox" {{checked}} value="{{_id}}">
+                  <label for="{{_id}}">
+                    {{title}}
+                  </label>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
